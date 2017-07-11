@@ -18,7 +18,6 @@ Insert_Meta = ("INSERT INTO blog_meta (blog_domain, blog_account, blog_name, blo
 Insert_Content = ("INSERT INTO blog_content (`blog_domain`,`blog_account`,`blog_url`,`blog_name`,`blog_title`,`blog_type`,`blog_time`,`blog_crawltime`,`blog_content`,`blog_author`,`blog_url_sha` ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,SHA(%s))")
 Select_Content_repeat = ("SELECT blog_url_sha FROM blog_content where blog_url_sha = SHA(%s)")
 Select_meta_repeat = ("SELECT blog_url FROM blog_meta where blog_url = (%s)")
-Insert_Job_List = ("INSERT INTO job_list(`sitename`,`type`,`url`,`crawler_name`,`host`,`flag`,`assign_time`,`url_sha`)VALUES (%s, %s, %s, %s, %s, %s, %s, SHA(%s));")
 
 class CrawlerClient(Crawler):
 
@@ -27,103 +26,101 @@ class CrawlerClient(Crawler):
         super(CrawlerClient, self).__init__(**kwargs)
         self.CRAWLER_NAME = 'www_pixnet_net'
     def crawl(self):
+        crawler_data = CrawlerDataWrapper()
         if self.flag == 'entry':
-
             if (self.url.find('www.pixnet.net/blog/articles/category/')>1):
-                self.parse_rank(self.url)
+                #self.parse_rank(self.url)
+
+                # find next page, and append to job_list step 1.
+                Web_url = self.url
+                Page_num = self.url
+                if Web_url.count('/') == 6:
+                    Web_url += "/hot/"
+                    Page_num = Web_url
+                elif Web_url.count('/') == 7:
+                    while (Web_url.count('/') > 6):
+                        Web_url = Web_url[:len(Web_url) - 1]
+                    Web_url += "/hot/"
             else:
                 self.parse_author(self.url)
-            return None
+
+                # find next page, and append to job_list step 1.
+                Web_url =  self.url
+                Page_num = self.url
+                if Web_url.count('/') == 3:
+                    Web_url += "/"
+                    Page_num = Web_url
+                elif Web_url.count('/') == 4:
+                    while (Web_url.count('/') > 3):
+                        Web_url = Web_url[:len(Web_url) - 1]
+                    Web_url += "/"
+
+            # find next page, and append to job_list step2 .
+            while (Page_num.count('/') > 0):
+                if Page_num.count('/') == 1:
+                    Page_num = Page_num[Page_num.count('/'):]
+                else:
+                    Page_num = Page_num[Page_num.count('/') + 1:]
+
+            if Page_num == "":
+                Page_num = 1
+            Page_num = int(Page_num) + 1
+
+            Job_Data = {
+                'sitename': self.sitename,
+                'type': self.type,
+                'url': Web_url + str(Page_num),
+                'crawler_name': self.CRAWLER_NAME,
+                'flag': 'entry'
+            }
+            print Job_Data
+            if Page_num <= 11:
+                print Page_num
+                crawler_data.append_entry_job(**Job_Data)
+                return crawler_data
 
         elif self.flag == 'item':
             self.parse_blog_content(self.url)
 
 
 
+
     def parse_rank(self,Web_url):
-        cnt = 0
-        url_Data = []
+        crawler_data = CrawlerDataWrapper()
+        url_Data = self.Blog_List_url_Crawler(Web_url)
+        if not url_Data == []:
 
-        # Web url format.
-        if Web_url.count('/') == 6:
-            Web_url += "/hot/"
-        elif Web_url.count('/') == 7:
-            while (Web_url.count('/') > 6):
-                Web_url = Web_url[:len(Web_url) - 1]
-            Web_url += "/hot/"
-        elif Web_url.count('/') == 8:
-            while (1):
-                if (Web_url[len(Web_url) - 1:] == '/'):
-                    break
-                else:
-                    Web_url = Web_url[:len(Web_url) - 1]
+            Job_Data = {
+                'sitename': self.sitename,
+                'type': self.type,
+                'url': 'http',
+                'crawler_name': self.CRAWLER_NAME,
+                'flag': 'item'
+            }
 
-        # crawl all blog url from rank list.
-        while (1):
-            cnt += 1
-            print Web_url + str(cnt)
-            url_Data = self.Blog_List_url_Crawler(Web_url + str(cnt))
-            if url_Data == []:
-                break
-            else:
-                try:
-                    Job_Data = []
-                    Job_Data.append(self.sitename)
-                    Job_Data.append(self.type)
-                    Job_Data.append('https')
-                    Job_Data.append(self.CRAWLER_NAME)
-                    Job_Data.append('localhost')
-                    Job_Data.append('item')
-                    Job_Data.append(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
-                    Job_Data.append('https')
-
-                    for i in url_Data:
-                        Job_Data[2] = i
-                        Job_Data[7] = i
-                        cursor.execute(Insert_Job_List, Job_Data)
-                        db.commit()
-                except Exception as e:
-                    print e
+            for i in url_Data:
+                Job_Data['url'] = i
+                print Job_Data
+                crawler_data.append_item_job(**Job_Data)
 
 
     def parse_author(self,Web_url):
-        cnt = 0
-        url_Data = []
+        crawler_data = CrawlerDataWrapper()
+        url_Data = self.Blog_Author_List_Crawler(Web_url)
+        if not url_Data == []:
+            Job_Data = {
+                'sitename': self.sitename,
+                'type': self.type,
+                'url': 'http',
+                'crawler_name': self.CRAWLER_NAME,
+                'flag': 'item'
+            }
 
-        # Web url format.
-        if Web_url.count('/') == 3:
-            Web_url += "/"
-        elif Web_url.count('/') == 4:
-            while (Web_url.count('/') > 3):
-                Web_url = Web_url[:len(Web_url) - 1]
-            Web_url += "/"
+            for i in url_Data:
+                Job_Data['url'] = i
+                print Job_Data
+                crawler_data.append_item_job(**Job_Data)
 
-        # crawl all blog url from Author Blog list.
-        while (1):
-            cnt += 1
-            print Web_url + str(cnt)
-            url_Data = self.Blog_Author_List_Crawler(Web_url + str(cnt))
-            if url_Data == []:
-                break
-            else:
-                try:
-                    Job_Data = []
-                    Job_Data.append(self.sitename)
-                    Job_Data.append(self.type)
-                    Job_Data.append('https')
-                    Job_Data.append(self.CRAWLER_NAME)
-                    Job_Data.append('localhost')
-                    Job_Data.append('item')
-                    Job_Data.append(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
-                    Job_Data.append('https')
-
-                    for i in url_Data:
-                        Job_Data[2] = i
-                        Job_Data[7] = i
-                        cursor.execute(Insert_Job_List, Job_Data)
-                        db.commit()
-                except Exception as e:
-                    print e
 
 
     def parse_blog_content(self,Web_url):
