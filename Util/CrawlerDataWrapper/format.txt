@@ -1,0 +1,34 @@
+﻿{    
+    "entry_job": # entry jobs (job format)
+    [
+        {
+            "url": ...,
+            "sitename": ...,
+            "flag": ...,
+            "type": ...,
+        },
+        {
+            ...
+        }
+    ],
+    "item_job": # item jobs (job format)
+    [
+        {
+            "url": ...,
+            "sitename": ...,
+            "flag": ...,
+            "type": ...,
+        },
+        {
+            ...
+        }
+    ],
+    "data":    # news data (newsdata format)
+    [
+        {
+            "url": ...,
+            "sitename": ...,
+            "content": ...,
+        }
+    ]
+}
