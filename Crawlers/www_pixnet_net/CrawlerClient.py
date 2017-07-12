@@ -241,6 +241,9 @@ class CrawlerClient(Crawler):
         Blog_Content = res('div.article-content-inner').find('p').text()
 
         Blog_Author = res('div.box-text').find('dl').find('dd').eq(0).text()
+        if (Blog_Author == ""):
+            Blog_Author = res('p.author').text()
+            Blog_Author = Blog_Author[:Blog_Author.find(' ')]
 
         Data.append(Blog_Domain)
         Data.append(Blog_Account)
@@ -253,6 +256,7 @@ class CrawlerClient(Crawler):
         Data.append(remove_emoji(Blog_Content))
         Data.append(remove_emoji(Blog_Author))
         Data.append(Blog_Url)
+
         return Data
 
 

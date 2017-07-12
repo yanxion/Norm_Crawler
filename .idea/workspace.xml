@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26194982-fec1-43d2-827b-b0b86e73019c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/MySQL_Job_List/Test.py" afterPath="$PROJECT_DIR$/Crawlers/MySQL_Job_List/Test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,37 +14,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawlers/www_juksy_com/CrawlerClient.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171">
-              <caret line="168" column="43" lean-forward="true" selection-start-line="168" selection-start-column="8" selection-end-line="168" selection-end-column="43" />
-              <folding>
-                <element signature="e#618#5407#0" expanded="false" />
-                <element signature="e#5661#5827#0" expanded="false" />
-                <element signature="e#5858#6100#0" expanded="false" />
-                <element signature="e#13571#13719#0" expanded="false" />
-                <element signature="e#13792#13833#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrawlerDataWrapper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Util/CrawlerDataWrapper/CrawlerDataWrapper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2223">
-              <caret line="263" column="68" lean-forward="false" selection-start-line="263" selection-start-column="68" selection-end-line="263" selection-end-column="68" />
+            <state relative-caret-position="323">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="e#3273#3781#0" expanded="false" />
                 <element signature="e#3828#4338#0" expanded="false" />
@@ -53,7 +26,6 @@
                 <element signature="e#5758#6497#0" expanded="false" />
                 <element signature="e#6583#6864#0" expanded="false" />
                 <element signature="e#6941#7676#0" expanded="false" />
-                <element signature="e#7758#9356#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -62,7 +34,7 @@
       <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crawlers/MySQL_Job_List/Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-285">
+            <state relative-caret-position="-276">
               <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#25#39#0" expanded="true" />
@@ -217,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CrawlerClient">
+  <component name="RunManager" selected="Python.Test">
     <configuration default="false" name="Unittests in CrawlerDataWrapper.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -375,8 +347,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.CrawlerClient" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.CrawlerClient" />
         <item index="2" class="java.lang.String" itemvalue="Python.CrawlerDataWrapper" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for CrawlerDataWrapper.test" />
         <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in CrawlerDataWrapper.py" />
@@ -414,7 +386,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23343849" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28864354" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -521,17 +493,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerDataWrapper/CrawlerDataWrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawlers/MySQL_Job_List/Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285">
+        <state relative-caret-position="-276">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
@@ -539,10 +503,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Util/CrawlerDataWrapper/CrawlerDataWrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2223">
-          <caret line="263" column="68" lean-forward="false" selection-start-line="263" selection-start-column="68" selection-end-line="263" selection-end-column="68" />
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="e#3273#3781#0" expanded="false" />
             <element signature="e#3828#4338#0" expanded="false" />
@@ -550,7 +522,6 @@
             <element signature="e#5758#6497#0" expanded="false" />
             <element signature="e#6583#6864#0" expanded="false" />
             <element signature="e#6941#7676#0" expanded="false" />
-            <element signature="e#7758#9356#0" expanded="false" />
           </folding>
         </state>
       </provider>
