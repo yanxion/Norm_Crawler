@@ -12,21 +12,18 @@ from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 from Util.TextUtil.SpecialCharUtil import remove_emoji
 from Util.SQL_Connect.SQL_Connect import Get_Connect_ini
 
-SQL_Data = Get_Connect_ini()
-
-db = MySQLdb.connect(SQL_Data['Host'], SQL_Data['Account'], SQL_Data['Password'], SQL_Data['Database'], charset='utf8')
-cursor = db.cursor()
-Insert_Meta = ("INSERT INTO blog_meta (domain, account, name, url) VALUES (%s, %s, %s, %s)")
-Insert_Content = ("INSERT INTO blog_content (domain,account,url,name,title,type,time,crawltime,content,author,url_sha) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,SHA(%s))")
-Select_Content_repeat = ("SELECT url_sha FROM blog_content where url_sha = SHA(%s)")
-Select_meta_repeat = ("SELECT url FROM blog_meta where url = (%s)")
-
 class CrawlerClient(Crawler):
-
-
     def __init__(self, **kwargs):
         super(CrawlerClient, self).__init__(**kwargs)
         self.CRAWLER_NAME = 'www_pixnet_net'
+        self.SQL_Data = Get_Connect_ini()
+        self.db = MySQLdb.connect(self.SQL_Data['Host'], self.SQL_Data['Account'], self.SQL_Data['Password'], self.SQL_Data['Database'], charset='utf8')
+        self.cursor =  self.db.cursor()
+        self.Insert_Meta = ("INSERT INTO blog_meta (domain, account, name, url) VALUES (%s, %s, %s, %s)")
+        self.Insert_Content = ("INSERT INTO blog_content (domain,account,url,name,title,type,time,crawltime,content,author,url_sha) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,SHA(%s))")
+        self.Select_Content_repeat = ("SELECT url_sha FROM blog_content where url_sha = SHA(%s)")
+        self.Select_meta_repeat = ("SELECT url FROM blog_meta where url = (%s)")
+
     def crawl(self):
         crawler_data = CrawlerDataWrapper()
         if self.flag == 'entry':
@@ -132,14 +129,14 @@ class CrawlerClient(Crawler):
             Data = self.Blog_Meta_Crawler(Web_url)
 
             # Check Meta Value Repeat.
-            cursor.execute(Select_meta_repeat, [Data[3]])
-            if cursor.fetchall():
+            self.cursor.execute(self.Select_meta_repeat, [Data[3]])
+            if self.cursor.fetchall():
                 print "has value."
             else:
                 try:
                     # Insert Meta to DB.
-                    cursor.execute(Insert_Meta, Data)
-                    db.commit()
+                    self.cursor.execute(self.Insert_Meta, Data)
+                    self.db.commit()
                     print "done."
                 except Exception as e:
                     print e
@@ -153,14 +150,14 @@ class CrawlerClient(Crawler):
             Data = self.Blog_Content_Crawler(Web_url)
 
             # Check Content Value Repeat.
-            cursor.execute(Select_Content_repeat, [Data[2]])
-            if cursor.fetchall():
+            self.cursor.execute(self.Select_Content_repeat, [Data[2]])
+            if self.cursor.fetchall():
                 print "has value."
             else:
                 try:
                     # Insert Content to DB.
-                    cursor.execute(Insert_Content, Data)
-                    db.commit()
+                    self.cursor.execute(self.Insert_Content, Data)
+                    self.db.commit()
                     print "done."
                 except Exception as e:
                     print e
@@ -168,6 +165,7 @@ class CrawlerClient(Crawler):
             print e
 
     def terminate(self):
+        self.db.close()
         pass
 
     # Rank List Analysis.

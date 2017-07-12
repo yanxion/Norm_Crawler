@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26194982-fec1-43d2-827b-b0b86e73019c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,17 +17,15 @@
       <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="284" column="0" lean-forward="true" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+            <state relative-caret-position="145">
+              <caret line="167" column="23" lean-forward="true" selection-start-line="167" selection-start-column="23" selection-end-line="167" selection-end-column="23" />
               <folding>
-                <element signature="e#1001#9506#0" expanded="false" />
-                <element signature="e#3279#3787#0" expanded="false" />
-                <element signature="e#3834#4344#0" expanded="false" />
-                <element signature="e#4398#5644#0" expanded="false" />
-                <element signature="e#5764#6503#0" expanded="false" />
-                <element signature="e#6589#6870#0" expanded="false" />
-                <element signature="e#6947#7682#0" expanded="false" />
-                <element signature="e#9525#10177#0" expanded="false" />
+                <element signature="e#3393#3901#0" expanded="false" />
+                <element signature="e#3948#4458#0" expanded="false" />
+                <element signature="e#5962#6701#0" expanded="false" />
+                <element signature="e#6787#7068#0" expanded="false" />
+                <element signature="e#7145#7880#0" expanded="false" />
+                <element signature="e#7962#9704#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,6 +108,13 @@
       <find>entry</find>
       <find>append</find>
       <find>crawler_data</find>
+      <find>db</find>
+      <find>cursor</find>
+      <find>Insert_Meta</find>
+      <find>Insert_Content</find>
+      <find>Select_Content_repeat</find>
+      <find>Select_meta_repeat</find>
+      <find>SQL_Data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,6 +160,16 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Crawlers" />
@@ -520,10 +534,10 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.109077595" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28864354" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.181388" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -704,17 +718,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="284" column="0" lean-forward="true" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+        <state relative-caret-position="145">
+          <caret line="167" column="23" lean-forward="true" selection-start-line="167" selection-start-column="23" selection-end-line="167" selection-end-column="23" />
           <folding>
-            <element signature="e#1001#9506#0" expanded="false" />
-            <element signature="e#3279#3787#0" expanded="false" />
-            <element signature="e#3834#4344#0" expanded="false" />
-            <element signature="e#4398#5644#0" expanded="false" />
-            <element signature="e#5764#6503#0" expanded="false" />
-            <element signature="e#6589#6870#0" expanded="false" />
-            <element signature="e#6947#7682#0" expanded="false" />
-            <element signature="e#9525#10177#0" expanded="false" />
+            <element signature="e#3393#3901#0" expanded="false" />
+            <element signature="e#3948#4458#0" expanded="false" />
+            <element signature="e#5962#6701#0" expanded="false" />
+            <element signature="e#6787#7068#0" expanded="false" />
+            <element signature="e#7145#7880#0" expanded="false" />
+            <element signature="e#7962#9704#0" expanded="false" />
           </folding>
         </state>
       </provider>
