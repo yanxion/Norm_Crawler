@@ -14,6 +14,7 @@ from Util.SQL_Connect.SQL_Connect import Get_Connect_ini
 
 class CrawlerClient(Crawler):
     def __init__(self, **kwargs):
+        self.crawler_data = CrawlerDataWrapper()
         super(CrawlerClient, self).__init__(**kwargs)
         self.CRAWLER_NAME = 'www_pixnet_net'
         self.SQL_Data = Get_Connect_ini()
@@ -25,10 +26,10 @@ class CrawlerClient(Crawler):
         self.Select_meta_repeat = ("SELECT url FROM blog_meta where url = (%s)")
 
     def crawl(self):
-        crawler_data = CrawlerDataWrapper()
+
         if self.flag == 'entry':
             if (self.url.find('www.pixnet.net/blog/articles/category/')>1):
-                #self.parse_rank(self.url)
+                self.parse_rank(self.url)
 
                 # find next page, and append to job_list step 1.
                 Web_url = self.url
@@ -75,8 +76,8 @@ class CrawlerClient(Crawler):
             print Job_Data
             if Page_num <= 11:
                 print Page_num
-                crawler_data.append_entry_job(**Job_Data)
-                return crawler_data
+                self.crawler_data.append_entry_job(**Job_Data)
+                return self.crawler_data
 
         elif self.flag == 'item':
             self.parse_blog_content(self.url)
@@ -85,7 +86,6 @@ class CrawlerClient(Crawler):
 
 
     def parse_rank(self,Web_url):
-        crawler_data = CrawlerDataWrapper()
         url_Data = self.Blog_List_url_Crawler(Web_url)
         if not url_Data == []:
 
@@ -100,11 +100,10 @@ class CrawlerClient(Crawler):
             for i in url_Data:
                 Job_Data['url'] = i
                 print Job_Data
-                crawler_data.append_item_job(**Job_Data)
+                self.crawler_data.append_item_job(**Job_Data)
 
 
     def parse_author(self,Web_url):
-        crawler_data = CrawlerDataWrapper()
         url_Data = self.Blog_Author_List_Crawler(Web_url)
         if not url_Data == []:
             Job_Data = {
@@ -118,7 +117,7 @@ class CrawlerClient(Crawler):
             for i in url_Data:
                 Job_Data['url'] = i
                 print Job_Data
-                crawler_data.append_item_job(**Job_Data)
+                self.crawler_data.append_item_job(**Job_Data)
 
 
 
@@ -273,7 +272,7 @@ def test():
             'sitename': sitename, 'type': Blog_type, 'flag': 'item'
         }
     }
-    cc = CrawlerClient(**test_set['entry'])
+    cc = CrawlerClient(**test_set['item'])
     cc.crawl()
     #res = cc.crawl()
     #print json.dumps(res.get_data(), ensure_ascii=False, indent=4)
