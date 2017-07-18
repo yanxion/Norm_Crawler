@@ -7,6 +7,7 @@ from pyquery import PyQuery as pq
 from datetime import datetime
 import MySQLdb
 from Crawlers.CrawlerBase.Crawler import Crawler
+import re
 
 from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 from Util.TextUtil.SpecialCharUtil import remove_emoji
@@ -24,13 +25,11 @@ class CrawlerClient(Crawler):
         self.Insert_Content = ("INSERT INTO blog_content (domain,account,url,name,title,type,time,crawltime,content,author,url_sha) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,SHA(%s))")
         self.Select_Content_repeat = ("SELECT url_sha FROM blog_content where url_sha = SHA(%s)")
         self.Select_meta_repeat = ("SELECT url FROM blog_meta where url = (%s)")
-
+        self.meta_flag = 0
     def crawl(self):
 
         if self.flag == 'entry':
             if (self.url.find('www.pixnet.net/blog/articles/category/')>1):
-                self.parse_rank(self.url)
-
                 # find next page, and append to job_list step 1.
                 Web_url = self.url
                 Page_num = self.url
@@ -42,8 +41,6 @@ class CrawlerClient(Crawler):
                         Web_url = Web_url[:len(Web_url) - 1]
                     Web_url += "/hot/"
             else:
-                self.parse_author(self.url)
-
                 # find next page, and append to job_list step 1.
                 Web_url =  self.url
                 Page_num = self.url
@@ -66,6 +63,16 @@ class CrawlerClient(Crawler):
                 Page_num = 1
             Page_num = int(Page_num) + 1
 
+            if Page_num - 1 == 1:
+                self.meta_flag = 1
+
+            if (self.url.find('www.pixnet.net/blog/articles/category/') > 1):
+                self.parse_rank(self.url)
+            else:
+                self.parse_author(self.url)
+
+
+            # append entry
             Job_Data = {
                 'sitename': self.sitename,
                 'type': self.type,
@@ -80,15 +87,14 @@ class CrawlerClient(Crawler):
                 return self.crawler_data
 
         elif self.flag == 'item':
+            self.parse_blog_meta(self.url)
             self.parse_blog_content(self.url)
-
-
-
+        elif self.flag == 'content':
+            self.parse_blog_content(self.url)
 
     def parse_rank(self,Web_url):
         url_Data = self.Blog_List_url_Crawler(Web_url)
         if not url_Data == []:
-
             Job_Data = {
                 'sitename': self.sitename,
                 'type': self.type,
@@ -98,7 +104,7 @@ class CrawlerClient(Crawler):
             }
 
             for i in url_Data:
-                Job_Data['url'] = i
+                Job_Data['url'] = re.sub("\-.*", "",i)
                 print Job_Data
                 self.crawler_data.append_item_job(**Job_Data)
 
@@ -113,15 +119,39 @@ class CrawlerClient(Crawler):
                 'crawler_name': self.CRAWLER_NAME,
                 'flag': 'item'
             }
-
             for i in url_Data:
-                Job_Data['url'] = i
+                Job_Data['url'] = re.sub("\-.*", "",i)
+                if self.meta_flag == 1:
+                    self.meta_flag = 0
+                    Job_Data['flag'] = 'item'
+                else:
+                    Job_Data['flag'] = 'content'
                 print Job_Data
+
                 self.crawler_data.append_item_job(**Job_Data)
 
-
-
     def parse_blog_content(self,Web_url):
+        # Content
+        print "Try Crawl Content " + Web_url + "... ",
+        try:
+            Data = self.Blog_Content_Crawler(Web_url)
+
+            # Check Content Value Repeat.
+            self.cursor.execute(self.Select_Content_repeat, [Data[2]])
+            if self.cursor.fetchall():
+                print "has value."
+            else:
+                try:
+                    # Insert Content to DB.
+                    self.cursor.execute(self.Insert_Content, Data)
+                    self.db.commit()
+                    print "done."
+                except Exception as e:
+                    print e
+        except Exception as e:
+            print e
+
+    def parse_blog_meta(self,Web_url):
         # Meta
         print "Try Crawl Meta " + Web_url + "... ",
         try:
@@ -140,26 +170,6 @@ class CrawlerClient(Crawler):
                 except Exception as e:
                     print e
 
-        except Exception as e:
-            print e
-
-        # Content
-        print "Try Crawl Content " + Web_url + "... ",
-        try:
-            Data = self.Blog_Content_Crawler(Web_url)
-
-            # Check Content Value Repeat.
-            self.cursor.execute(self.Select_Content_repeat, [Data[2]])
-            if self.cursor.fetchall():
-                print "has value."
-            else:
-                try:
-                    # Insert Content to DB.
-                    self.cursor.execute(self.Insert_Content, Data)
-                    self.db.commit()
-                    print "done."
-                except Exception as e:
-                    print e
         except Exception as e:
             print e
 
@@ -265,10 +275,11 @@ def test():
     test_set = {
         'entry': {
             'url': 'https://www.pixnet.net/blog/articles/category/9/',
+            # 'url': 'http://fc781117.pixnet.net/blog/',
             'sitename': sitename, 'type': Blog_type, 'flag': 'entry'
         },
         'item': {  # for normal item parse
-            'url': 'http://fc781117.pixnet.net/blog/post/109026073-%E8%AD%A6%E5%A4%A7%E5%95%8F%E9%A1%8C%E9%9B%86--2016-02-22%E4%BF%AE%E6%94%B9',
+            'url': 'http://tkbeasytest.pixnet.net/blog/post/4578536',
             'sitename': sitename, 'type': Blog_type, 'flag': 'item'
         }
     }

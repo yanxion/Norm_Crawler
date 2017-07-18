@@ -1,6 +1,14 @@
+import urlparse
 
-import re
 
-inputStr = "hello crifan, nihao crifan"
-replacedStr = re.sub(r"hello (\w+), nihao \1", "crifanli", inputStr)
-print "replacedStr=",replacedStr #crifanli
+url=urlparse.urlparse('http://www.baidu.com/news/index.php?username=guol')
+
+print url
+url = urlparse.urlunsplit((url.scheme,url.netloc,'','',''))
+
+print url
+# u = urlparse.urlunparse(url)
+
+u = urlparse.urljoin(url,"/inasdd.php")
+
+print u
