@@ -1,14 +1,12 @@
-import urlparse
+# -*- coding: utf-8 -*-
+test_set = {'url': 'l', 'sitename': 'self.sitename', 'type': 'self.type', 'flag': 'self.flag'}
 
+item_test = test_set.copy()
 
-url=urlparse.urlparse('http://www.baidu.com/news/index.php?username=guol')
+item_test['url'] = "123"
 
-print url
-url = urlparse.urlunsplit((url.scheme,url.netloc,'','',''))
+print test_set
 
-print url
-# u = urlparse.urlunparse(url)
+print
 
-u = urlparse.urljoin(url,"/inasdd.php")
-
-print u
+print item_test

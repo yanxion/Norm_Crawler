@@ -36,7 +36,7 @@ class CrawlerClient(Crawler):
         res.encoding = 'big5'
         res = PyQuery(res.text)
         for i in range(0,res('td.box a').length,+1):
-            print urlparse.urljoin("https://www.cichb.gov.tw/news/",res('td.box a').eq(i).attr('href'))
+            #print urlparse.urljoin("https://www.cichb.gov.tw/news/",res('td.box a').eq(i).attr('href'))
             Job_Data = {
                 'sitename': self.sitename,
                 'type': self.type,

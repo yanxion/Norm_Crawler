@@ -40,10 +40,10 @@ class CrawlerClient(Crawler):
                         'crawler_name': self.CRAWLER_NAME,
                         'flag': 'entry'
                     }
-                    self.crawler_data.append_item_job(**Job_Data)
+                    self.crawler_data.append_entry_job(**Job_Data)
 
             else:
-                print self.url+"?pn=2&department=&key="
+                #print self.url+"?pn=2&department=&key="
                 Job_Data = {
                     'sitename': self.sitename,
                     'type': self.type,
@@ -51,7 +51,7 @@ class CrawlerClient(Crawler):
                     'crawler_name': self.CRAWLER_NAME,
                     'flag': 'entry'
                 }
-                self.crawler_data.append_item_job(**Job_Data)
+                self.crawler_data.append_entry_job(**Job_Data)
         else:
             self.crawl_item()
 
@@ -64,7 +64,7 @@ class CrawlerClient(Crawler):
         res = PyQuery(res.text)
 
         for i in range(0,res('div#news_box li a').length,+1):
-            print urlparse.urljoin("https://www.mlshb.gov.tw/tc/", res('div#news_box li a').eq(i).attr('href'))
+            #print urlparse.urljoin("https://www.mlshb.gov.tw/tc/", res('div#news_box li a').eq(i).attr('href'))
             Job_Data = {
                 'sitename': self.sitename,
                 'type': self.type,
@@ -104,7 +104,7 @@ def test():
     Blog_type = u'新聞稿'
     test_set = {
         'entry': {
-            'url': 'https://www.mlshb.gov.tw/tc/PressRelease.aspx?pn=2&department=&key=',
+            'url': 'https://www.mlshb.gov.tw/tc/PressRelease.aspx',
             'sitename': sitename, 'type': Blog_type, 'flag': 'entry'
         },
         'item': {  # for normal item parse
