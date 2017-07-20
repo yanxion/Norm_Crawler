@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
-
 import sys
 sys.path.append('../../')
-
 from pyquery import PyQuery as pq
 from datetime import datetime
 import MySQLdb
 from Crawlers.CrawlerBase.Crawler import Crawler
 import re
-
 from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 from Util.TextUtil.SpecialCharUtil import remove_emoji
 from Util.SQL_Connect.SQL_Connect import Get_Connect_ini
@@ -18,13 +15,15 @@ class CrawlerClient(Crawler):
         self.crawler_data = CrawlerDataWrapper()
         super(CrawlerClient, self).__init__(**kwargs)
         self.CRAWLER_NAME = 'www_pixnet_net'
-        self.SQL_Data = Get_Connect_ini()
-        self.db = MySQLdb.connect(self.SQL_Data['Host'], self.SQL_Data['Account'], self.SQL_Data['Password'], self.SQL_Data['Database'], charset='utf8')
-        self.cursor =  self.db.cursor()
-        self.Insert_Meta = ("INSERT INTO blog_meta (domain, account, name, url) VALUES (%s, %s, %s, %s)")
-        self.Insert_Content = ("INSERT INTO blog_content (domain,account,url,name,title,type,time,crawltime,content,author,url_sha) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,SHA(%s))")
-        self.Select_Content_repeat = ("SELECT url_sha FROM blog_content where url_sha = SHA(%s)")
-        self.Select_meta_repeat = ("SELECT url FROM blog_meta where url = (%s)")
+        #self.SQL_Data = Get_Connect_ini()
+        # self.db = MySQLdb.connect(self.SQL_Data['Host'], self.SQL_Data['Account'], self.SQL_Data['Password'], self.SQL_Data['Database'], charset='utf8')
+        self.db = MySQLdb.connect("localhost", "user", "user", "blog_crawler", charset='utf8')
+        self.cursor = self.db.cursor()
+        self.Insert_Meta = "INSERT INTO blog_meta (domain, account, name, url) VALUES (%s, %s, %s, %s)"
+        self.Insert_Content = ("INSERT INTO blog_content (domain,account,url,name,title,type,time,crawltime,content,"
+                               "author,url_sha) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,SHA(%s))")
+        self.Select_Content_repeat = "SELECT url_sha FROM blog_content where url_sha = SHA(%s)"
+        self.Select_meta_repeat = "SELECT url FROM blog_meta where url = (%s)"
         self.meta_flag = 0
     def crawl(self):
 
