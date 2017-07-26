@@ -15,7 +15,7 @@ class CrawlerClient(Crawler):
         self.crawler_data = CrawlerDataWrapper()
         super(CrawlerClient, self).__init__(**kwargs)
         self.CRAWLER_NAME = 'www_pixnet_net'
-        #self.SQL_Data = Get_Connect_ini()
+        self.SQL_Data = Get_Connect_ini()
         # self.db = MySQLdb.connect(self.SQL_Data['Host'], self.SQL_Data['Account'], self.SQL_Data['Password'], self.SQL_Data['Database'], charset='utf8')
         self.db = MySQLdb.connect("localhost", "user", "user", "blog_crawler", charset='utf8')
         self.cursor = self.db.cursor()

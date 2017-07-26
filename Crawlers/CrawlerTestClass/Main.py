@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
+sys.path.append('../../')
 import importlib
 import codecs
 import json
 from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
-
-sys.path.append('../../')
 
 
 class CrawlerTestClass():
