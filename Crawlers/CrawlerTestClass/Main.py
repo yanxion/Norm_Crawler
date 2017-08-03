@@ -10,7 +10,7 @@ from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 class CrawlerTestClass():
     def __init__(self, **kwargs):
         self.crawler_data = CrawlerDataWrapper()
-        self.entry_num = 3
+        self.entry_num = 2
         try:
             self.crawler_name = kwargs['crawler_name']
             self.url = kwargs['url']

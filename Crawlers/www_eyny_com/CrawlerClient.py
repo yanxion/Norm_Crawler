@@ -1,21 +1,35 @@
 # -*- coding: utf-8 -*-
+import random
 import sys
 import urlparse
+import re
 sys.path.append('../../')
-from pyquery import PyQuery
 from Util.HashUtil.Sha import sha1
-from Crawlers.CrawlerBase.Crawler import Crawler
 from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 from Util.DateTimeUtil import DateTimeUtil
-import re
+from Util.Forum_MySqlDB_util.Forum_MySqlDB_util import Forum_MySqlDB_util
+from pyquery import PyQuery
+from Crawlers.CrawlerBase.Crawler import Crawler
+
 
 
 class CrawlerClient(Crawler):
     def __init__(self, **kwargs):
-        self.crawler_data = CrawlerDataWrapper()
         super(CrawlerClient, self).__init__(**kwargs)
-        self.CRAWLER_NAME = ''
-        self.ENTRY_REQUESTS_TYPE = 'GET'
+        self.crawler_data = CrawlerDataWrapper()
+        # mysql connect
+        self.forum_mysql = Forum_MySqlDB_util()
+        self.forum_mysql.connect_mysql()
+        # insert post data if has then update
+        self.forum_post_sql = "INSERT INTO post (key_url,key_url_sha,author,title,content,comment_count,sitename," \
+                              "type,time,crawltime) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" \
+                              "ON DUPLICATE KEY UPDATE content = '%s', comment_count = '%s', crawltime = '%s';"
+        # insert comment data use batch insert
+        # warning! the end of sentence can't has ;
+        self.forum_comment_sql = "INSERT INTO comment (key_url,key_url_sha,url,url_sha,author,content,floor,sitename," \
+                                 "type,time,crawltime) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        self.CRAWLER_NAME = 'eyny'
+        # self.ENTRY_REQUESTS_TYPE = 'GET'
 
 # Entry.
     # Item link.
@@ -39,6 +53,12 @@ class CrawlerClient(Crawler):
         self.ITEM_NEXTPAGE_REMOVE_CSS = 'script'
         self.ITEM_NEXTPAGE_REPLACE_RE = []
         self.ITEM_NEXTPAGE_REPLACE_STRING = []
+    # jump floor setting
+        # this forum one page has how many comment floor
+        self.FORUM_FLOOR_CNT = 15
+        self.FORUM_URL_REPLACE_RE = ['-.-']
+        # use %d to insert page number
+        self.FORUM_URL_REPLACE_STRING = ['-%d-']
 
 # POST
     # post setting
@@ -119,10 +139,6 @@ class CrawlerClient(Crawler):
         # %S: second, [00, 61]
         # must encoded in utf-8, DO NOT REMOVE THE ENCODING!
 
-
-
-
-
     def crawl(self):
         if self.flag == 'entry':
             self.crawl_entry()
@@ -132,9 +148,11 @@ class CrawlerClient(Crawler):
 
     def crawl_entry(self):
         res = PyQuery(self.url, encoding="utf-8")
+        # read entry's item url
         for i in range(res(self.ENTRY_LINK_CSS).length):
             item_data = self.parse_item_link(res(self.ENTRY_LINK_CSS).eq(i))
             self.crawler_data.append_item_job(**item_data)
+        # read next page url & return entry job
         entry_data = self.parse_next_entry_link(res('html'))
         self.crawler_data.append_entry_job(**entry_data)
 
@@ -144,6 +162,7 @@ class CrawlerClient(Crawler):
             url = link_str.attr(self.ENTRY_LINK_ATTR)
         else:
             url = link_str.text()
+        # 拼湊出item url
         item_url = urlparse.urljoin(url_parse.scheme + "://" + url_parse.netloc, url)
         item_data = {
             'sitename': self.sitename,
@@ -162,6 +181,7 @@ class CrawlerClient(Crawler):
         else:
             next_page = res(self.ENTRY_NEXTPAGE_CSS)
         if next_page:
+            # 拼湊出entry url
             next_page_url = urlparse.urljoin(url_parse.scheme + "://" + url_parse.netloc, next_page)
             entry_data = {
                 'sitename': self.sitename,
@@ -174,39 +194,77 @@ class CrawlerClient(Crawler):
 
     def crawl_item(self):
         web_url = self.url
+        # save batch insert data
+        sql_list = []
+        # count comment floor
+        comment_cnt = 1
+        # get comment count from post
+        sql_comment_cnt = 0
+        sql_comment_cnt_flag = 0
+        new_update_floor_cnt = 0
+        print web_url, " Crawling.....",
         while True:
+
             res = PyQuery(web_url, encoding="utf-8")
             url_parse = urlparse.urlparse(self.url)
-
-            for i in range(res(self.COMMENT_CONTENT_CSS).length):
+            for i in range(res(self.COMMENT_EQ_DOCUMENT).length):
+                # 抓取發文的樓層
                 if self.url == web_url and i == int(self.POST_EQ):
+                    # get comment count from post
+                    sql_comment_cnt = self.forum_mysql.select_sql(
+                        "SELECT comment_count FROM post WHERE key_url_sha ='" + sha1(self.url) + "'")
                     post_data = self.parse_post()
-                    print post_data
-                    print "-------------------------------------------"
+                    if sql_comment_cnt[0] != '0':
+                        web_url, jump_floor_cnt = self.forum_jump_floor_format(web_url, sql_comment_cnt[0])
+                        if web_url != self.url:
+                            comment_cnt += ((jump_floor_cnt-1) * self.FORUM_FLOOR_CNT)-1
+                            sql_comment_cnt_flag = 1
+                            break
                 else:
+                # 抓取留言的樓層
                     comment_data = self.parse_comment(res(self.COMMENT_EQ_DOCUMENT).eq(i), web_url)
-                    print comment_data
-                    self.crawler_data.append_data(**comment_data)
-                    print "-------------------------------------------"
+                    comment_cnt += 1
+                    # if post's comment count = 0 then mean sqldb no this post data,
+                    # so do normal insert
+                    # else if comment count != 0 then update new comment content
+                    if sql_comment_cnt[0] != '0':
+                        if comment_cnt > int(sql_comment_cnt[0]):
+                            sql_list.append(tuple(comment_data))
+                            new_update_floor_cnt += 1
+                    else:
+                        sql_list.append(tuple(comment_data))
+            if sql_comment_cnt_flag:
+                sql_comment_cnt_flag = 0
+                continue
 
+            # when batch insert value > 100 then send data and clear list.
+            if len(sql_list) > 100:
+                self.forum_mysql.batch_insert_sql(self.forum_comment_sql, sql_list)
+                sql_list = []
+            # find next page
             if self.ITEM_NEXTPAGE_ATTR:
                 next_page = res(self.ITEM_NEXTPAGE_CSS).attr(self.ITEM_NEXTPAGE_ATTR)
             else:
                 next_page = res(self.ITEM_NEXTPAGE_CSS)
-
             if next_page:
                 next_page_url = urlparse.urljoin(url_parse.scheme+"://"+url_parse.netloc, next_page)
                 web_url = next_page_url
             else:
-                post_data['comment_count'] = comment_data['floor']
-                self.crawler_data.append_data(**post_data)
-                print "NO Next page"
+                if sql_list:
+                    self.forum_mysql.batch_insert_sql(self.forum_comment_sql, sql_list)
+                # comment floor count , 5:insert value(comment_cnt), 11:update value
+                try:
+                    post_data[5] = comment_cnt
+                    post_data[11] = comment_cnt
+                    self.forum_mysql.insert_sql(self.forum_post_sql % tuple(post_data))
+                    print "No Next page.",
+                except:
+                    print "post_sql insert error!",
                 break
+        print "All / New :", comment_cnt, " / ", new_update_floor_cnt
 
     def parse_post(self):
         res = PyQuery(self.url, encoding="utf-8")
-        # res = PyQuery(html_script)
-
         key_url_string = self.url
         key_url_sha_string = sha1(self.url)
         comment_count_string = ''
@@ -284,7 +342,21 @@ class CrawlerClient(Crawler):
             "time": time_string,
             "crawltime": crawltime_string,
         }
-        return post_data
+        sql_data = []
+        sql_data.append(post_data['key_url'])
+        sql_data.append(post_data['key_url_sha'])
+        sql_data.append(post_data['author'])
+        sql_data.append(post_data['title'])
+        sql_data.append(post_data['content'])
+        sql_data.append(post_data['comment_count'])
+        sql_data.append(post_data['sitename'])
+        sql_data.append(post_data['type'])
+        sql_data.append(post_data['time'])
+        sql_data.append(post_data['crawltime'])
+        sql_data.append(post_data['content'])
+        sql_data.append(post_data['comment_count'])
+        sql_data.append(post_data['crawltime'])
+        return sql_data
 
     def parse_comment(self, html_script, Web_url):
         res = PyQuery(html_script)
@@ -363,16 +435,47 @@ class CrawlerClient(Crawler):
             'time': time_string,
             'crawltime': crawltime_string,
         }
+        sql_data = []
+        sql_data.append(comment_data['key_url'])
+        sql_data.append(comment_data['key_url_sha'])
+        sql_data.append(comment_data['url'])
+        sql_data.append(comment_data['url_sha'])
+        sql_data.append(comment_data['author'])
+        sql_data.append(comment_data['content'])
+        sql_data.append(comment_data['floor'])
+        sql_data.append(comment_data['sitename'])
+        sql_data.append(comment_data['type'])
+        sql_data.append(comment_data['time'])
+        sql_data.append(comment_data['crawltime'])
 
-        return comment_data
+        return sql_data
+
+    def forum_jump_floor_format(self, web_url, sql_comment_cnt):
+        cnt = 0
+        while(True):
+            cnt += 1
+            if cnt * self.FORUM_FLOOR_CNT +1 >= sql_comment_cnt:
+                break
+        web_url = self.replace_str(self.FORUM_URL_REPLACE_RE, self.FORUM_URL_REPLACE_STRING, web_url)
+        return web_url % cnt, cnt
 
     def comment_floor_format(self, floor_str):
+        """
+        # 自行改寫
+        :param floor_str 抓取的樓層字串:
+        :return 改寫後的純數字:
+        """
         if floor_str == u'頭香':
             return 2
         else:
             return re.sub('[^0-9]\s*', '', floor_str)
 
     def time_format(self, time_str):
+        """
+        # 自行改寫
+        :param time_str: 抓取的時間字串
+        :return: 可被 timestamp 接受的時間格式
+        """
         res = PyQuery(time_str)
         if res('span'):
             if self.POST_TIME_ATTR:
@@ -381,6 +484,7 @@ class CrawlerClient(Crawler):
             return time_str.text()
 
     def terminate(self):
+        self.forum_mysql.db_close()
         pass
 
     def replace_str(self, re_pattern_list, re_replacement_list, origin_str):
@@ -390,15 +494,15 @@ class CrawlerClient(Crawler):
 
 
 if __name__ == '__main__':
-    sitename = u'eyny'
-    news_type = u'eyny'
+    sitename = 'eyny'
+    news_type = 'eyny'
     test_set = {
         'entry': {
             'url': 'http://www01.eyny.com/forum.php?mod=forumdisplay&fid=27&page=EY2Y69P2',
             'sitename': sitename, 'type': news_type, 'flag': 'entry'
         },
         'item': {  # for normal item parse
-            'url': 'http://www01.eyny.com/thread-11256716-1-EY2Y69P2.html',
+            'url': 'http://www01.eyny.com/thread-11433448-1-EY2Y69P2.html',
             'sitename': sitename, 'type': news_type, 'flag': 'item'
         }
     }
