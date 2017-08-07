@@ -37,13 +37,13 @@ class CrawlerClient(Crawler):
 
 # Entry.
     # Item link.
-        self.ENTRY_LINK_CSS = ''
+        self.ENTRY_LINK_CSS = '.topicurl'
         self.ENTRY_LINK_ATTR = 'href'
         self.ENTRY_LINK_REMOVE_CSS = 'script'
         self.ENTRY_LINK_REPLACE_RE = []
         self.ENTRY_LINK_REPLACE_STRING = []
     # next page url.
-        self.ENTRY_NEXTPAGE_CSS = ''
+        self.ENTRY_NEXTPAGE_CSS = '.next'
         self.ENTRY_NEXTPAGE_ATTR = 'href'
         self.ENTRY_NEXTPAGE_REMOVE_CSS = ''
         self.ENTRY_NEXTPAGE_REPLACE_RE = []
@@ -52,7 +52,7 @@ class CrawlerClient(Crawler):
 # ITEM
     # next page
         # self.ITEM_NEXTPAGE_CSS = u'div.pagination a:contains(下一頁)'
-        self.ITEM_NEXTPAGE_CSS = ''
+        self.ITEM_NEXTPAGE_CSS = '.next'
         self.ITEM_NEXTPAGE_ATTR = 'href'
         self.ITEM_NEXTPAGE_REMOVE_CSS = 'script'
         self.ITEM_NEXTPAGE_REPLACE_RE = []
@@ -60,12 +60,12 @@ class CrawlerClient(Crawler):
     # jump floor setting
         # jump : 論壇留言樓層刪除仍存在實際樓層時使用
         # crawl : 論壇留言樓層刪除會由下一樓層遞補上去時使用
-        self.FORUM_FLOOR_METHOD = ''
+        self.FORUM_FLOOR_METHOD = 'crawl'
         # this forum one page has how many comment floor
         self.FORUM_FLOOR_CNT = 10
-        self.FORUM_URL_REPLACE_RE = []
+        self.FORUM_URL_REPLACE_RE = ['\.html']
         # use %d to insert page number
-        self.FORUM_URL_REPLACE_STRING = []
+        self.FORUM_URL_REPLACE_STRING = ['-%d.html']
 
 
 # POST
@@ -73,29 +73,29 @@ class CrawlerClient(Crawler):
         # POST_EQ = '' 代表主文跟回文CSS格式不一樣 | POST_EQ = '數字' ,主文的所在位置 第一層為0，第二層為1
         self.POST_EQ = '0'
     # post title
-        self.POST_TITLE_CSS = ''
+        self.POST_TITLE_CSS = '.post_r_tit h1'
         self.POST_TITLE_ATTR = ''
         self.POST_TITLE_REMOVE_CSS = 'script'
         self.POST_TITLE_REPLACE_RE = []
         self.POST_TITLE_REPLACE_STRING = []
     # post author
-        self.POST_AUTHOR_CSS = ''
+        self.POST_AUTHOR_CSS = '.fb a'
         self.POST_AUTHOR_ATTR = ''
         self.POST_AUTHOR_REMOVE_CSS = 'script'
         self.POST_AUTHOR_REPLACE_RE = []
         self.POST_AUTHOR_REPLACE_STRING = []
     # post content
-        self.POST_CONTENT_CSS = ''
+        self.POST_CONTENT_CSS = '.normal_msg'
         self.POST_CONTENT_ATTR = ''
         self.POST_CONTENT_REMOVE_CSS = 'script'
         self.POST_CONTENT_REPLACE_RE = []
         self.POST_CONTENT_REPLACE_STRING = []
     # post time
-        self.POST_TIME_CSS = ''
+        self.POST_TIME_CSS = '.post_time'
         self.POST_TIME_ATTR = ''
         self.POST_TIME_REMOVE_CSS = 'script'
-        self.POST_TIME_REPLACE_RE = []
-        self.POST_TIME_REPLACE_STRING = []
+        self.POST_TIME_REPLACE_RE = ['\(.*\)', '[^0-9-:]']
+        self.POST_TIME_REPLACE_STRING = ['', '']
         self.POST_TIME_FORMAT = u'%Y-%m-%d%H:%M'.encode(self.html_encoding)
         # %Y: year in n digits
         # %y: year in 2 digits, [00, 99]
@@ -111,31 +111,31 @@ class CrawlerClient(Crawler):
 # COMMENT
         # comment setting
         # comment document css
-        self.COMMENT_EQ_DOCUMENT = ''
+        self.COMMENT_EQ_DOCUMENT = '#post_list div[id^="post_"] table.itemTable'
     # comment author
-        self.COMMENT_AUTHOR_CSS = ''
+        self.COMMENT_AUTHOR_CSS = '.fb a'
         self.COMMENT_AUTHOR_ATTR = ''
         self.COMMENT_AUTHOR_REMOVE_CSS = 'script'
         self.COMMENT_AUTHOR_REPLACE_RE = []
         self.COMMENT_AUTHOR_REPLACE_STRING = []
     # comment content
-        self.COMMENT_CONTENT_CSS = ''
+        self.COMMENT_CONTENT_CSS = '.normal_msg'
         self.COMMENT_CONTENT_ATTR = ''
         self.COMMENT_CONTENT_REMOVE_CSS = 'script'
         self.COMMENT_CONTENT_REPLACE_RE = []
         self.COMMENT_CONTENT_REPLACE_STRING = []
     # comment floor
-        self.COMMENT_FLOOR_CSS = ''
+        self.COMMENT_FLOOR_CSS = '.post_floor em'
         self.COMMENT_FLOOR_ATTR = ''
         self.COMMENT_FLOOR_REMOVE_CSS = 'script'
         self.COMMENT_FLOOR_REPLACE_RE = []
         self.COMMENT_FLOOR_REPLACE_STRING = []
     # comment time
-        self.COMMENT_TIME_CSS = ''
+        self.COMMENT_TIME_CSS = '.post_time'
         self.COMMENT_TIME_ATTR = ''
         self.COMMENT_TIME_REMOVE_CSS = 'script'
-        self.COMMENT_TIME_REPLACE_RE = []
-        self.COMMENT_TIME_REPLACE_STRING = []
+        self.COMMENT_TIME_REPLACE_RE = ['\(.*\)', '[^0-9-:]']
+        self.COMMENT_TIME_REPLACE_STRING = ['', '']
         self.COMMENT_TIME_FORMAT = u'%Y-%m-%d%H:%M'.encode(self.html_encoding)
         # %Y: year in n digits
         # %y: year in 2 digits, [00, 99]

@@ -11,7 +11,7 @@ from Util.Forum_MySqlDB_util.Forum_MySqlDB_util import Forum_MySqlDB_util
 from Util.TextUtil.SpecialCharUtil import remove_emoji
 from pyquery import PyQuery
 from Crawlers.CrawlerBase.Crawler import Crawler
-import time
+
 
 
 class CrawlerClient(Crawler):
@@ -29,21 +29,21 @@ class CrawlerClient(Crawler):
         # warning! the end of sentence can't has ;  <--------
         self.forum_comment_sql = "INSERT INTO comment (key_url,key_url_sha,url,url_sha,author,content,floor,sitename," \
                                  "type,time,crawltime) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        self.CRAWLER_NAME = 'bbs_pcbaby_com'
+        self.CRAWLER_NAME = 'talk_wed168_com'
         # html's coding
-        self.html_encoding = 'GBK'
+        self.html_encoding = 'big5'
         # request html delay, unit : second
-        self.DELAY_TIME = 5
+        self.DELAY_TIME = 0
 
 # Entry.
     # Item link.
-        self.ENTRY_LINK_CSS = ''
+        self.ENTRY_LINK_CSS = '.txt_tit a:has(span)'
         self.ENTRY_LINK_ATTR = 'href'
         self.ENTRY_LINK_REMOVE_CSS = 'script'
         self.ENTRY_LINK_REPLACE_RE = []
         self.ENTRY_LINK_REPLACE_STRING = []
     # next page url.
-        self.ENTRY_NEXTPAGE_CSS = ''
+        self.ENTRY_NEXTPAGE_CSS = 'div.count a:has(img):last'
         self.ENTRY_NEXTPAGE_ATTR = 'href'
         self.ENTRY_NEXTPAGE_REMOVE_CSS = ''
         self.ENTRY_NEXTPAGE_REPLACE_RE = []
@@ -52,7 +52,7 @@ class CrawlerClient(Crawler):
 # ITEM
     # next page
         # self.ITEM_NEXTPAGE_CSS = u'div.pagination a:contains(下一頁)'
-        self.ITEM_NEXTPAGE_CSS = ''
+        self.ITEM_NEXTPAGE_CSS = 'div.count a:has(img):last'
         self.ITEM_NEXTPAGE_ATTR = 'href'
         self.ITEM_NEXTPAGE_REMOVE_CSS = 'script'
         self.ITEM_NEXTPAGE_REPLACE_RE = []
@@ -60,9 +60,9 @@ class CrawlerClient(Crawler):
     # jump floor setting
         # jump : 論壇留言樓層刪除仍存在實際樓層時使用
         # crawl : 論壇留言樓層刪除會由下一樓層遞補上去時使用
-        self.FORUM_FLOOR_METHOD = ''
+        self.FORUM_FLOOR_METHOD = 'crawl'
         # this forum one page has how many comment floor
-        self.FORUM_FLOOR_CNT = 10
+        self.FORUM_FLOOR_CNT = 50
         self.FORUM_URL_REPLACE_RE = []
         # use %d to insert page number
         self.FORUM_URL_REPLACE_STRING = []
@@ -73,30 +73,30 @@ class CrawlerClient(Crawler):
         # POST_EQ = '' 代表主文跟回文CSS格式不一樣 | POST_EQ = '數字' ,主文的所在位置 第一層為0，第二層為1
         self.POST_EQ = '0'
     # post title
-        self.POST_TITLE_CSS = ''
+        self.POST_TITLE_CSS = '.discu_R div:eq(1) div:eq(1) p:first'
         self.POST_TITLE_ATTR = ''
         self.POST_TITLE_REMOVE_CSS = 'script'
         self.POST_TITLE_REPLACE_RE = []
         self.POST_TITLE_REPLACE_STRING = []
     # post author
-        self.POST_AUTHOR_CSS = ''
+        self.POST_AUTHOR_CSS = '.discu_R div div p span:eq(1)'
         self.POST_AUTHOR_ATTR = ''
         self.POST_AUTHOR_REMOVE_CSS = 'script'
         self.POST_AUTHOR_REPLACE_RE = []
         self.POST_AUTHOR_REPLACE_STRING = []
     # post content
-        self.POST_CONTENT_CSS = ''
+        self.POST_CONTENT_CSS = 'div.discu_R div.content'
         self.POST_CONTENT_ATTR = ''
         self.POST_CONTENT_REMOVE_CSS = 'script'
         self.POST_CONTENT_REPLACE_RE = []
         self.POST_CONTENT_REPLACE_STRING = []
     # post time
-        self.POST_TIME_CSS = ''
+        self.POST_TIME_CSS = '.discu_R div div p span:eq(0)'
         self.POST_TIME_ATTR = ''
         self.POST_TIME_REMOVE_CSS = 'script'
-        self.POST_TIME_REPLACE_RE = []
-        self.POST_TIME_REPLACE_STRING = []
-        self.POST_TIME_FORMAT = u'%Y-%m-%d%H:%M'.encode(self.html_encoding)
+        self.POST_TIME_REPLACE_RE = [u'下午', u'上午', '\s']
+        self.POST_TIME_REPLACE_STRING = ['PM', 'AM', '']
+        self.POST_TIME_FORMAT = u'%Y/%m/%d%p%I:%M:%S'.encode(self.html_encoding)
         # %Y: year in n digits
         # %y: year in 2 digits, [00, 99]
         # %m: month, [01, 12]
@@ -111,31 +111,31 @@ class CrawlerClient(Crawler):
 # COMMENT
         # comment setting
         # comment document css
-        self.COMMENT_EQ_DOCUMENT = ''
+        self.COMMENT_EQ_DOCUMENT = '.discu_R'
     # comment author
-        self.COMMENT_AUTHOR_CSS = ''
+        self.COMMENT_AUTHOR_CSS = 'div div p span:eq(1)'
         self.COMMENT_AUTHOR_ATTR = ''
         self.COMMENT_AUTHOR_REMOVE_CSS = 'script'
         self.COMMENT_AUTHOR_REPLACE_RE = []
         self.COMMENT_AUTHOR_REPLACE_STRING = []
     # comment content
-        self.COMMENT_CONTENT_CSS = ''
+        self.COMMENT_CONTENT_CSS = 'div.content'
         self.COMMENT_CONTENT_ATTR = ''
         self.COMMENT_CONTENT_REMOVE_CSS = 'script'
         self.COMMENT_CONTENT_REPLACE_RE = []
         self.COMMENT_CONTENT_REPLACE_STRING = []
     # comment floor
-        self.COMMENT_FLOOR_CSS = ''
+        self.COMMENT_FLOOR_CSS = 'span.number'
         self.COMMENT_FLOOR_ATTR = ''
         self.COMMENT_FLOOR_REMOVE_CSS = 'script'
-        self.COMMENT_FLOOR_REPLACE_RE = []
-        self.COMMENT_FLOOR_REPLACE_STRING = []
+        self.COMMENT_FLOOR_REPLACE_RE = ['[^0-9]']
+        self.COMMENT_FLOOR_REPLACE_STRING = ['']
     # comment time
-        self.COMMENT_TIME_CSS = ''
+        self.COMMENT_TIME_CSS = 'div div p span[style*="line-height: 18px"]'
         self.COMMENT_TIME_ATTR = ''
         self.COMMENT_TIME_REMOVE_CSS = 'script'
-        self.COMMENT_TIME_REPLACE_RE = []
-        self.COMMENT_TIME_REPLACE_STRING = []
+        self.COMMENT_TIME_REPLACE_RE = [u'下午', u'上午', '\s']
+        self.COMMENT_TIME_REPLACE_STRING = ['PM', 'AM', '']
         self.COMMENT_TIME_FORMAT = u'%Y-%m-%d%H:%M'.encode(self.html_encoding)
         # %Y: year in n digits
         # %y: year in 2 digits, [00, 99]
@@ -204,6 +204,13 @@ class CrawlerClient(Crawler):
 
     def crawl_item(self):
         web_url = self.url
+        # ----------------------------- only talk.wed168.com.tw need ---------------------------
+        url_parse = urlparse.urlparse(self.url)
+        item_res = PyQuery(web_url, encoding=self.html_encoding)
+        web_url = urlparse.urljoin(url_parse.scheme + "://" + url_parse.netloc,
+                                    item_res('div.count a:eq(2)').attr('href'))
+        self.url = web_url
+        # --------------------------------------------------------------------------------------
         # save batch insert data
         sql_list = []
         # count comment floor
@@ -212,10 +219,11 @@ class CrawlerClient(Crawler):
         sql_comment_cnt = 0
         sql_comment_cnt_flag = 0
         new_update_floor_cnt = 0
+        # try request html cnt
+        try_cnt = 0
         print web_url, " Crawling.....",
         while True:
             try:
-                try_cnt = 0
                 res = PyQuery(web_url, encoding=self.html_encoding)
             except Exception as e:
                 print e
@@ -230,7 +238,8 @@ class CrawlerClient(Crawler):
                     sql_comment_cnt = self.forum_mysql.select_sql(
                         "SELECT comment_count FROM post WHERE key_url_sha ='" + sha1(self.url) + "'")
                     post_data = self.parse_post()
-                    # print post_data
+                    # for result in post_data:
+                    #     print result
                     # print "------------------------------------------------------------------"
                     if sql_comment_cnt[0] != '0' and self.FORUM_FLOOR_METHOD == 'jump':
                         web_url, jump_page = self.forum_jump_floor_format(web_url, sql_comment_cnt[0])
@@ -244,7 +253,8 @@ class CrawlerClient(Crawler):
                     comment_data = self.parse_comment(res(self.COMMENT_EQ_DOCUMENT).eq(i), web_url)
                     if not comment_data:
                         continue
-                    # print comment_data
+                    # for result in comment_data:
+                    #     print result
                     # print "------------------------------------------------------------------"
                     comment_cnt += 1
                     # if post's comment count = 0 then mean sqldb no this post data,
@@ -268,7 +278,10 @@ class CrawlerClient(Crawler):
 
             # when batch insert value > 100 then send data and clear list.
             if len(sql_list) > 100:
-                self.forum_mysql.batch_insert_sql(self.forum_comment_sql, sql_list)
+                try:
+                    self.forum_mysql.batch_insert_sql(self.forum_comment_sql, sql_list)
+                except:
+                    print sql_list
                 sql_list = []
             # find next page
             if self.ITEM_NEXTPAGE_ATTR:
@@ -497,6 +510,7 @@ class CrawlerClient(Crawler):
         :param sql_comment_cnt: 資料庫這篇文章之前所爬到的樓層數
         :return:回傳 跳頁處理好的url, 跳頁後增加的樓層數
         """
+        return web_url, 0
         page = 0
         while(True):
             page += 1
@@ -514,18 +528,7 @@ class CrawlerClient(Crawler):
         :param floor_str 抓取的樓層字串:
         :return 改寫後的純數字:
         """
-        if floor_str == u'楼主':
-            return 1
-        elif floor_str == u'沙发':
-            return 2
-        elif floor_str == u'板凳':
-            return 3
-        elif floor_str == u'地板':
-            return 4
-        elif floor_str == u'地下室':
-            return 5
-        else:
-            return re.sub('[^0-9]\s*', '', floor_str)
+        return re.sub('[^0-9]\s*', '', floor_str)
 
     def time_format(self, time_str):
         """

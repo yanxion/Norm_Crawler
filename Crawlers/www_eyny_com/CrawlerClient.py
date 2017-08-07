@@ -28,7 +28,7 @@ class CrawlerClient(Crawler):
         # warning! the end of sentence can't has ;
         self.forum_comment_sql = "INSERT INTO comment (key_url,key_url_sha,url,url_sha,author,content,floor,sitename," \
                                  "type,time,crawltime) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        self.CRAWLER_NAME = 'eyny'
+        self.CRAWLER_NAME = 'www_eyny_com'
         # self.ENTRY_REQUESTS_TYPE = 'GET'
 
 # Entry.
@@ -233,6 +233,7 @@ class CrawlerClient(Crawler):
                             new_update_floor_cnt += 1
                     else:
                         sql_list.append(tuple(comment_data))
+                        new_update_floor_cnt += 1
             if sql_comment_cnt_flag:
                 sql_comment_cnt_flag = 0
                 continue
@@ -248,8 +249,11 @@ class CrawlerClient(Crawler):
                 next_page = res(self.ITEM_NEXTPAGE_CSS)
             if next_page:
                 next_page_url = urlparse.urljoin(url_parse.scheme+"://"+url_parse.netloc, next_page)
-                web_url = next_page_url
-            else:
+                if web_url == next_page_url:
+                    next_page = None
+                else:
+                    web_url = next_page_url
+            if not next_page:
                 if sql_list:
                     self.forum_mysql.batch_insert_sql(self.forum_comment_sql, sql_list)
                 # comment floor count , 5:insert value(comment_cnt), 11:update value
