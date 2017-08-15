@@ -33,7 +33,7 @@ class CrawlerClient(Crawler):
         # html's coding
         self.html_encoding = 'GBK'
         # request html delay, unit : second
-        self.DELAY_TIME = 5
+        self.DELAY_TIME = 2
 
 # Entry.
     # Item link.
@@ -149,7 +149,6 @@ class CrawlerClient(Crawler):
         # must encoded in utf-8, DO NOT REMOVE THE ENCODING!
 
     def crawl(self):
-        time.sleep(self.DELAY_TIME)
         if self.flag == 'entry':
             self.crawl_entry()
         elif self.flag == 'item':
@@ -157,6 +156,7 @@ class CrawlerClient(Crawler):
         return self.crawler_data
 
     def crawl_entry(self):
+        time.sleep(self.DELAY_TIME)
         res = PyQuery(self.url, encoding=self.html_encoding)
         # read entry's item url
         for i in range(res(self.ENTRY_LINK_CSS).length):
@@ -214,6 +214,7 @@ class CrawlerClient(Crawler):
         new_update_floor_cnt = 0
         print web_url, " Crawling.....",
         while True:
+            time.sleep(self.DELAY_TIME)
             try:
                 try_cnt = 0
                 res = PyQuery(web_url, encoding=self.html_encoding)
@@ -538,7 +539,6 @@ class CrawlerClient(Crawler):
 
     def terminate(self):
         self.forum_mysql.db_close()
-        pass
 
     def replace_str(self, re_pattern_list, re_replacement_list, origin_str):
         for pattern, repl in zip(re_pattern_list, re_replacement_list):
@@ -547,15 +547,15 @@ class CrawlerClient(Crawler):
 
 
 if __name__ == '__main__':
-    sitename = 'eyny'
-    news_type = 'eyny'
+    sitename = 'pcbaby'
+    news_type = '新手妈妈'
     test_set = {
         'entry': {
-            'url': 'http://www01.eyny.com/forum.php?mod=forumdisplay&fid=27&page=EY2Y69P2',
+            'url': 'http://bbs.pcbaby.com.cn/forum-1948.html',
             'sitename': sitename, 'type': news_type, 'flag': 'entry'
         },
         'item': {  # for normal item parse
-            'url': 'http://www01.eyny.com/thread-11433448-1-EY2Y69P2.html',
+            'url': 'http://bbs.pcbaby.com.cn/topic-9881876.html',
             'sitename': sitename, 'type': news_type, 'flag': 'item'
         }
     }

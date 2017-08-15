@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26194982-fec1-43d2-827b-b0b86e73019c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/test/test.py" afterPath="$PROJECT_DIR$/Crawlers/test/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py" afterPath="$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,64 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/Main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="254" column="43" lean-forward="false" selection-start-line="254" selection-start-column="43" selection-end-line="254" selection-end-column="43" />
-              <folding>
-                <element signature="e#24#37#0" expanded="true" />
-                <element signature="e#5560#5712#0" expanded="false" />
-                <element signature="e#5749#6181#0" expanded="false" />
-                <element signature="e#6232#6744#0" expanded="false" />
-                <element signature="e#6804#7486#0" expanded="false" />
-                <element signature="e#11039#15096#0" expanded="false" />
-                <element signature="e#19226#19498#0" expanded="false" />
-                <element signature="e#19555#19764#0" expanded="false" />
-                <element signature="e#19811#20114#0" expanded="false" />
-                <element signature="e#20276#20424#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="564" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="530" column="49" lean-forward="true" selection-start-line="530" selection-start-column="49" selection-end-line="530" selection-end-column="49" />
-              <folding>
-                <element signature="e#13466#17665#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crawlers/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="152">
+              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
               </folding>
@@ -85,11 +35,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py">
+      <file leaf-file-name="DateTimeParser.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="31" />
+            <state relative-caret-position="1868">
+              <caret line="228" column="26" lean-forward="true" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
+              <folding>
+                <element signature="e#712#727#0" expanded="true" />
+                <element signature="e#1623#1646#0" expanded="false" />
+                <element signature="e#1685#1700#0" expanded="false" />
+                <element signature="e#1740#1756#0" expanded="false" />
+                <element signature="e#1794#1808#0" expanded="false" />
+                <element signature="e#1847#1862#0" expanded="false" />
+                <element signature="e#1900#1914#0" expanded="false" />
+                <element signature="e#1952#1966#0" expanded="false" />
+                <element signature="e#2008#2032#0" expanded="false" />
+                <element signature="e#2066#2082#0" expanded="false" />
+                <element signature="e#2117#2134#0" expanded="false" />
+                <element signature="e#2167#2182#0" expanded="false" />
+                <element signature="e#2216#2232#0" expanded="false" />
+                <element signature="e#2265#2280#0" expanded="false" />
+                <element signature="e#2313#2328#0" expanded="false" />
+                <element signature="e#3502#3826#0" expanded="false" />
+                <element signature="e#3885#4216#0" expanded="false" />
+                <element signature="e#4280#4407#0" expanded="false" />
+                <element signature="e#4491#4613#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateTimeUtil.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -106,20 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>eq</find>
-      <find>9</find>
-      <find>09</find>
-      <find>ITEM_NEXTPAGE_CSS</find>
-      <find>ATTR</find>
-      <find>START_CRAWL_PAGE</find>
-      <find>entry</find>
-      <find>forum_sql</find>
-      <find>append_data</find>
-      <find>sql_data</find>
-      <find>post_data</find>
-      <find>post_url_format</find>
-      <find>comment_data</find>
-      <find>.t_f</find>
       <find>post_floor</find>
       <find>utf-8</find>
       <find>sitename</find>
@@ -135,8 +101,25 @@
       <find># title</find>
       <find>span</find>
       <find>!!!!!!!!!!!</find>
+      <find>DELAY_TIME</find>
       <find>print</find>
+      <find>sub</find>
+      <find>time_string_re</find>
+      <find>timestring_fields_format</find>
+      <find>strToTime</find>
+      <find>timeToStr</find>
+      <find>parseTimeStr</find>
+      <find>dateTimeToTimeStr</find>
+      <find>dateTimeToTime</find>
+      <find>startOfTheDay</find>
+      <find>get_timestr_to_stamp</find>
+      <find>timestr_to_stamp</find>
+      <find>get_timestamp_from_timestr</find>
+      <find>timestring_re</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -154,7 +137,6 @@
         <option value="$PROJECT_DIR$/Crawlers/www_yzzk_com/NewsFetcher.py" />
         <option value="$PROJECT_DIR$/Crawlers/www_rmim_com/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/www_rmim_com/NewsFetcher.py" />
-        <option value="$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py" />
         <option value="$PROJECT_DIR$/Crawlers/www_mpfinance_com/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/www_cichb_gov/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/www_mlshb_gov/CrawlerClient.py" />
@@ -183,10 +165,14 @@
         <option value="$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py" />
         <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Item.txt" />
         <option value="$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/test/test.py" />
+        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/bbs_pcbaby_com_新手媽媽_Item.txt" />
+        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/bbs_pcbaby_com_新手媽媽_Entry.txt" />
+        <option value="$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py" />
+        <option value="$PROJECT_DIR$/Crawlers/test/test.py" />
+        <option value="$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py" />
+        <option value="$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py" />
       </list>
     </option>
   </component>
@@ -209,7 +195,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>PyBroadExceptionInspection</id>
+            <id>PyPep8NamingInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -231,8 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,7 +257,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TextUtil" />
+              <option name="myItemId" value="Forum_MySqlDB_util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -291,7 +275,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Forum_MySqlDB_util" />
+              <option name="myItemId" value="DateTimeUtil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DateTimeParser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,42 +308,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="talk_wed168_com" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -363,62 +329,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrawlerTestClass" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbs_pcbaby_com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
-    <property name="last_opened_file_path" value="C:/Python27/Lib/site-packages/autopep8.py" />
+    <property name="last_opened_file_path" value="C:/Python27/Scripts/scrapy_program" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util" />
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util\SQL_Connect" />
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\talk_wed168_com" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\bbs_pcbaby_com" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util\MySqlDB_Util" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\ck101_com" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\www_eyny_com" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util" />
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util\SQL_Connect" />
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -433,7 +365,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Main">
+  <component name="RunManager" selected="Python.DateTimeParser">
     <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -501,6 +433,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Crawlers" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DateTimeParser" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Util/DateTimeParser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Crawlers" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -588,19 +538,21 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.Main" />
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
       <item index="2" class="java.lang.String" itemvalue="Python.Forum_MySqlDB_util" />
       <item index="3" class="java.lang.String" itemvalue="Python.CrawlerClient" />
       <item index="4" class="java.lang.String" itemvalue="Python.CrawlerClient (1)" />
+      <item index="5" class="java.lang.String" itemvalue="Python.DateTimeParser" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CrawlerClient (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.CrawlerClient" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Forum_MySqlDB_util" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.DateTimeParser" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.CrawlerClient (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.CrawlerClient" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Forum_MySqlDB_util" />
       </list>
     </recent_temporary>
   </component>
@@ -662,23 +614,23 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14166667" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11727079" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28870293" sideWeight="0.50416666" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2656904" sideWeight="0.49583334" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23151125" sideWeight="0.49583334" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39853558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39764202" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -694,21 +646,11 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="41" />
+      <option name="time" value="50" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_cichb_gov_測試_Entry.txt" />
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_cichb_gov_測試_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_juksy_com/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_cichb_gov_新聞_Entry.txt" />
     <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_cichb_gov_新聞_Item.txt" />
     <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_mlshb_gov_測試_Item.txt" />
     <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_mlshb_gov_測試_Entry.txt" />
@@ -770,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,7 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,28 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/BaseTemplate/CrawlerClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="180" column="14" lean-forward="false" selection-start-line="180" selection-start-column="14" selection-end-line="180" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Util/Forum_MySqlDB_util/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/MySQLdb/connections.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -876,38 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/Forum_Template_eyny_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Item.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Entry.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Data.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Item.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Entry.txt" />
     <entry file="file://$PROJECT_DIR$/Crawlers/www_juksy_com/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -915,22 +805,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/talk_wed168_com_婚禮交流_Entry.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/talk_wed168_com_婚禮交流_Item.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/talk_wed168_com_婚禮交流_Data.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/bbs_pcbaby_com_新手媽媽_Item.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/bbs_pcbaby_com_新手媽媽_Entry.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10526">
+          <caret line="557" column="65" lean-forward="false" selection-start-line="557" selection-start-column="65" selection-end-line="557" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2755">
+          <caret line="148" column="60" lean-forward="false" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util/Forum_MySqlDB_util/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="254" column="43" lean-forward="false" selection-start-line="254" selection-start-column="43" selection-end-line="254" selection-end-column="43" />
+          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
           <folding>
-            <element signature="e#24#37#0" expanded="true" />
-            <element signature="e#5560#5712#0" expanded="false" />
-            <element signature="e#5749#6181#0" expanded="false" />
-            <element signature="e#6232#6744#0" expanded="false" />
-            <element signature="e#6804#7486#0" expanded="false" />
-            <element signature="e#11039#15096#0" expanded="false" />
-            <element signature="e#19226#19498#0" expanded="false" />
-            <element signature="e#19555#19764#0" expanded="false" />
-            <element signature="e#19811#20114#0" expanded="false" />
-            <element signature="e#20276#20424#0" expanded="false" />
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/BaseTemplate/CrawlerClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="28" column="50" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="28" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -938,67 +873,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/talk_wed168_com_婚禮交流_Entry.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/talk_wed168_com_婚禮交流_Item.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerTestClass/talk_wed168_com_婚禮交流_Data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="564" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="530" column="49" lean-forward="true" selection-start-line="530" selection-start-column="49" selection-end-line="530" selection-end-column="49" />
-          <folding>
-            <element signature="e#13466#17665#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="31" />
+        <state relative-caret-position="372">
+          <caret line="542" column="4" lean-forward="true" selection-start-line="542" selection-start-column="4" selection-end-line="545" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1868">
+          <caret line="228" column="26" lean-forward="true" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
+          <folding>
+            <element signature="e#712#727#0" expanded="true" />
+            <element signature="e#1623#1646#0" expanded="false" />
+            <element signature="e#1685#1700#0" expanded="false" />
+            <element signature="e#1740#1756#0" expanded="false" />
+            <element signature="e#1794#1808#0" expanded="false" />
+            <element signature="e#1847#1862#0" expanded="false" />
+            <element signature="e#1900#1914#0" expanded="false" />
+            <element signature="e#1952#1966#0" expanded="false" />
+            <element signature="e#2008#2032#0" expanded="false" />
+            <element signature="e#2066#2082#0" expanded="false" />
+            <element signature="e#2117#2134#0" expanded="false" />
+            <element signature="e#2167#2182#0" expanded="false" />
+            <element signature="e#2216#2232#0" expanded="false" />
+            <element signature="e#2265#2280#0" expanded="false" />
+            <element signature="e#2313#2328#0" expanded="false" />
+            <element signature="e#3502#3826#0" expanded="false" />
+            <element signature="e#3885#4216#0" expanded="false" />
+            <element signature="e#4280#4407#0" expanded="false" />
+            <element signature="e#4491#4613#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

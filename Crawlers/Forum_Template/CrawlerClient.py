@@ -33,7 +33,7 @@ class CrawlerClient(Crawler):
         # html's coding
         self.html_encoding = 'GBK'
         # request html delay, unit : second
-        self.DELAY_TIME = 5
+        self.DELAY_TIME = 0
 
 # Entry.
     # Item link.
@@ -60,12 +60,12 @@ class CrawlerClient(Crawler):
     # jump floor setting
         # jump : 論壇留言樓層刪除仍存在實際樓層時使用
         # crawl : 論壇留言樓層刪除會由下一樓層遞補上去時使用
-        self.FORUM_FLOOR_METHOD = ''
+        self.FORUM_FLOOR_METHOD = 'crawl'
         # this forum one page has how many comment floor
         self.FORUM_FLOOR_CNT = 10
-        self.FORUM_URL_REPLACE_RE = []
+        self.FORUM_URL_REPLACE_RE = ['\.html']
         # use %d to insert page number
-        self.FORUM_URL_REPLACE_STRING = []
+        self.FORUM_URL_REPLACE_STRING = ['-%d.html']
 
 
 # POST
@@ -149,7 +149,6 @@ class CrawlerClient(Crawler):
         # must encoded in utf-8, DO NOT REMOVE THE ENCODING!
 
     def crawl(self):
-        time.sleep(self.DELAY_TIME)
         if self.flag == 'entry':
             self.crawl_entry()
         elif self.flag == 'item':
@@ -157,6 +156,7 @@ class CrawlerClient(Crawler):
         return self.crawler_data
 
     def crawl_entry(self):
+        time.sleep(self.DELAY_TIME)
         res = PyQuery(self.url, encoding=self.html_encoding)
         # read entry's item url
         for i in range(res(self.ENTRY_LINK_CSS).length):
@@ -214,6 +214,7 @@ class CrawlerClient(Crawler):
         new_update_floor_cnt = 0
         print web_url, " Crawling.....",
         while True:
+            time.sleep(self.DELAY_TIME)
             try:
                 try_cnt = 0
                 res = PyQuery(web_url, encoding=self.html_encoding)
@@ -538,7 +539,6 @@ class CrawlerClient(Crawler):
 
     def terminate(self):
         self.forum_mysql.db_close()
-        pass
 
     def replace_str(self, re_pattern_list, re_replacement_list, origin_str):
         for pattern, repl in zip(re_pattern_list, re_replacement_list):

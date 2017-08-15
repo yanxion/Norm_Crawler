@@ -11,7 +11,7 @@ from Util.Forum_MySqlDB_util.Forum_MySqlDB_util import Forum_MySqlDB_util
 from Util.TextUtil.SpecialCharUtil import remove_emoji
 from pyquery import PyQuery
 from Crawlers.CrawlerBase.Crawler import Crawler
-
+import time
 
 
 class CrawlerClient(Crawler):
@@ -149,7 +149,6 @@ class CrawlerClient(Crawler):
         # must encoded in utf-8, DO NOT REMOVE THE ENCODING!
 
     def crawl(self):
-        time.sleep(self.DELAY_TIME)
         if self.flag == 'entry':
             self.crawl_entry()
         elif self.flag == 'item':
@@ -157,6 +156,7 @@ class CrawlerClient(Crawler):
         return self.crawler_data
 
     def crawl_entry(self):
+        time.sleep(self.DELAY_TIME)
         res = PyQuery(self.url, encoding=self.html_encoding)
         # read entry's item url
         for i in range(res(self.ENTRY_LINK_CSS).length):
@@ -207,8 +207,7 @@ class CrawlerClient(Crawler):
         # ----------------------------- only talk.wed168.com.tw need ---------------------------
         url_parse = urlparse.urlparse(self.url)
         item_res = PyQuery(web_url, encoding=self.html_encoding)
-        web_url = urlparse.urljoin(url_parse.scheme + "://" + url_parse.netloc,
-                                    item_res('div.count a:eq(2)').attr('href'))
+        web_url = urlparse.urljoin(url_parse.scheme + "://" + url_parse.netloc, item_res('div.count a:eq(2)').attr('href'))
         self.url = web_url
         # --------------------------------------------------------------------------------------
         # save batch insert data
@@ -223,6 +222,7 @@ class CrawlerClient(Crawler):
         try_cnt = 0
         print web_url, " Crawling.....",
         while True:
+            time.sleep(self.DELAY_TIME)
             try:
                 res = PyQuery(web_url, encoding=self.html_encoding)
             except Exception as e:
@@ -249,7 +249,7 @@ class CrawlerClient(Crawler):
                             sql_comment_cnt_flag = 1
                             break
                 else:
-                # 抓取留言的樓層
+                    # 抓取留言的樓層
                     comment_data = self.parse_comment(res(self.COMMENT_EQ_DOCUMENT).eq(i), web_url)
                     if not comment_data:
                         continue
@@ -457,7 +457,6 @@ class CrawlerClient(Crawler):
                                             floor_string)
         floor_string = self.comment_floor_format(floor_string)
 
-
     # time
         time_element = res(self.COMMENT_TIME_CSS)
         if self.COMMENT_TIME_REMOVE_CSS:
@@ -511,16 +510,6 @@ class CrawlerClient(Crawler):
         :return:回傳 跳頁處理好的url, 跳頁後增加的樓層數
         """
         return web_url, 0
-        page = 0
-        while(True):
-            page += 1
-            if page * self.FORUM_FLOOR_CNT +1 == sql_comment_cnt:
-                page -= 1
-                break
-            elif page * self.FORUM_FLOOR_CNT > sql_comment_cnt:
-                break
-        web_url = self.replace_str(self.FORUM_URL_REPLACE_RE, self.FORUM_URL_REPLACE_STRING, web_url)
-        return web_url % page, page
 
     def comment_floor_format(self, floor_str):
         """
@@ -541,7 +530,6 @@ class CrawlerClient(Crawler):
 
     def terminate(self):
         self.forum_mysql.db_close()
-        pass
 
     def replace_str(self, re_pattern_list, re_replacement_list, origin_str):
         for pattern, repl in zip(re_pattern_list, re_replacement_list):
@@ -550,15 +538,15 @@ class CrawlerClient(Crawler):
 
 
 if __name__ == '__main__':
-    sitename = 'eyny'
-    news_type = 'eyny'
+    sitename = 'wed168'
+    news_type = '孕婦寶寶'
     test_set = {
         'entry': {
-            'url': 'http://www01.eyny.com/forum.php?mod=forumdisplay&fid=27&page=EY2Y69P2',
+            'url': 'http://talk.wed168.com.tw/indexType4_29.html',
             'sitename': sitename, 'type': news_type, 'flag': 'entry'
         },
         'item': {  # for normal item parse
-            'url': 'http://www01.eyny.com/thread-11433448-1-EY2Y69P2.html',
+            'url': 'http://talk.wed168.com.tw/188630.html',
             'sitename': sitename, 'type': news_type, 'flag': 'item'
         }
     }

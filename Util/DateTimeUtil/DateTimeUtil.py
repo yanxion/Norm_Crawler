@@ -25,7 +25,7 @@ def timeToStr(time):
 # %m: month, [01, 12]
 # %d: day, [01,31]
 # %H: hour in 24H mode, [00, 23]
-# %h: hour in 12H mode, [01, 12]
+# %I: hour in 12H mode, [01, 12]
 # %p: AM/PM
 # %M: minute, [00, 59]
 # %S: second, [00, 61]
