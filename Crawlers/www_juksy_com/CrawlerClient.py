@@ -293,7 +293,8 @@ class CrawlerClient(Crawler):
                 'type': type_string,
                 'html': html,
                 'sentiment': 0,
-                'url_sha': url_sha
+                'url_sha': url_sha,
+                'context': '{"data_type":"news"}'
                 }
         crawler_data.append_data(**data)
 

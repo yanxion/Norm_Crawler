@@ -11,9 +11,9 @@ class SQL_Connect():
         self.batch_sql_str = ''
         self.batch_sql_val = ''
 
-    def get_connect_ini(self):
+    def get_connect_ini(self, path):
         config = ConfigParser.ConfigParser()
-        config.read('../../Util/SQL_Connect/config.ini')
+        config.read(os.path.join(path, "config.ini"))
         self.sql_data = {
             'Host': config.get('SQL_Connect', 'Host'),
             'Account': config.get('SQL_Connect', 'Account'),
@@ -22,8 +22,8 @@ class SQL_Connect():
         }
         return self.sql_data
 
-    def connect_mysql(self):
-        self.get_connect_ini()
+    def connect_mysql(self, path):
+        self.get_connect_ini(path)
 
         self.db = MySQLdb.connect(host=self.sql_data['Host'], user=self.sql_data['Account'],
                                   passwd=self.sql_data['Password'], db=self.sql_data['Database']
