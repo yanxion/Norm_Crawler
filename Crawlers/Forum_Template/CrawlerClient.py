@@ -179,7 +179,8 @@ class CrawlerClient(Crawler):
             'type': self.type,
             'url': item_url,
             'crawler_name': self.CRAWLER_NAME,
-            'flag': 'item'
+            'flag': 'item',
+            'context': '{"data_type":"forum"}'
         }
         return item_data
 
@@ -198,7 +199,8 @@ class CrawlerClient(Crawler):
                 'type': self.type,
                 'url': next_page_url,
                 'crawler_name': self.CRAWLER_NAME,
-                'flag': 'entry'
+                'flag': 'entry',
+                'context': '{"data_type":"forum"}'
             }
             return entry_data
 
