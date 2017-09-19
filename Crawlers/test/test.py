@@ -14,8 +14,7 @@ from Util.Crawler_Proxy_Util.Crawler_Proxy_Util import Crawler_Proxy_Util
 a = Crawler_Proxy_Util()
 r = a.proxy_requests("http://myip.com", encoding='utf-8')
 res = PyQuery(r)
-print res('font')
-
+print res('body')
 # print dateparser.parse('12/12/12')
 # print dateparser.parse(u'星期一, 12 Dec 2014 10:55:50')
 # print dateparser.parse(u'2017/二月/05 5:30 PM')

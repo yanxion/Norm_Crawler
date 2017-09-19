@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 import random
 import sys
 import urlparse
@@ -33,15 +34,28 @@ class CrawlerClient(Crawler):
         # html's coding
         self.html_encoding = 'GBK'
         # request html delay, unit : second
-        self.DELAY_TIME = 0
+        self.DELAY_TIME = 2
 
 # Entry.
+
+    # Item block.
+        self.ENTRY_BLOCK_CSS = ''
+        self.ENTRY_BLOCK_ATTR = ''
+        self.ENTRY_BLOCK_REMOVE_CSS = 'script'
+        self.ENTRY_BLOCK_REPLACE_RE = []
+        self.ENTRY_BLOCK_REPLACE_STRING = []
     # Item link.
         self.ENTRY_LINK_CSS = ''
         self.ENTRY_LINK_ATTR = 'href'
         self.ENTRY_LINK_REMOVE_CSS = 'script'
         self.ENTRY_LINK_REPLACE_RE = []
         self.ENTRY_LINK_REPLACE_STRING = []
+    # Item title.
+        self.ENTRY_TITLE_CSS = ''
+        self.ENTRY_TITLE_ATTR = 'title'
+        self.ENTRY_TITLE_REMOVE_CSS = 'script'
+        self.ENTRY_TITLE_REPLACE_RE = []
+        self.ENTRY_TITLE_REPLACE_STRING = []
     # next page url.
         self.ENTRY_NEXTPAGE_CSS = ''
         self.ENTRY_NEXTPAGE_ATTR = 'href'
@@ -159,19 +173,37 @@ class CrawlerClient(Crawler):
         time.sleep(self.DELAY_TIME)
         res = PyQuery(self.url, encoding=self.html_encoding)
         # read entry's item url
-        for i in range(res(self.ENTRY_LINK_CSS).length):
-            item_data = self.parse_item_link(res(self.ENTRY_LINK_CSS).eq(i))
+        for i in range(res(self.ENTRY_BLOCK_CSS).length):
+            item_data = self.parse_item_link(res(self.ENTRY_BLOCK_CSS).eq(i))
             self.crawler_data.append_item_job(**item_data)
         # read next page url & return entry job
         entry_data = self.parse_next_entry_link(res('html'))
         self.crawler_data.append_entry_job(**entry_data)
 
-    def parse_item_link(self, link_str):
+    def parse_item_link(self, html_script):
+        res = PyQuery(html_script)
+
+        # iten url.
         url_parse = urlparse.urlparse(self.url)
+        link_str = res(self.ENTRY_LINK_CSS)
         if self.ENTRY_LINK_ATTR:
             url = link_str.attr(self.ENTRY_LINK_ATTR)
         else:
             url = link_str.text()
+        if self.ENTRY_LINK_REPLACE_RE:
+            url = self.replace_str(self.ENTRY_LINK_REPLACE_RE, self.ENTRY_LINK_REPLACE_STRING,
+                                             url)
+
+        # item title.
+        title_str = res(self.ENTRY_TITLE_CSS)
+        if self.ENTRY_TITLE_ATTR:
+            title = title_str.attr(self.ENTRY_TITLE_ATTR)
+        else:
+            title = title_str.text()
+        if self.ENTRY_TITLE_REPLACE_RE:
+            title = self.replace_str(self.ENTRY_TITLE_REPLACE_RE, self.ENTRY_TITLE_REPLACE_STRING,
+                                     title)
+
         # 拼湊出item url
         item_url = urlparse.urljoin(url_parse.scheme + "://" + url_parse.netloc, url)
         item_data = {
@@ -180,8 +212,10 @@ class CrawlerClient(Crawler):
             'url': item_url,
             'crawler_name': self.CRAWLER_NAME,
             'flag': 'item',
-            'context': '{"data_type":"forum"}'
+            'context': '{"data_type": "forum"}'
         }
+        if title:
+            item_data['context'] = '{"data_type": "forum", "title": "' + title + '"}'
         return item_data
 
     def parse_next_entry_link(self, html_script):
@@ -312,18 +346,21 @@ class CrawlerClient(Crawler):
         crawltime_string = DateTimeUtil.timeToStr(DateTimeUtil.now())
 
     # title
-        title_element = res(self.POST_TITLE_CSS)
-        if self.POST_TITLE_REMOVE_CSS:
-            title_element = title_element.clone()
-            title_element.remove(self.POST_TITLE_REMOVE_CSS)
-        if self.POST_EQ:
-            title_element = title_element.eq(int(self.POST_EQ))
-        if self.POST_TITLE_ATTR:
-            title_string = title_element.attr(self.POST_TITLE_ATTR)
+        if 'title' in json.loads(self.context):
+            title_string = json.loads(self.context)['title']
         else:
-            title_string = title_element.text()
-        if self.POST_TITLE_REPLACE_RE:
-            title_string = self.replace_str(self.POST_TITLE_REPLACE_RE, self.POST_TITLE_REPLACE_STRING, title_string)
+            title_element = res(self.POST_TITLE_CSS)
+            if self.POST_TITLE_REMOVE_CSS:
+                title_element = title_element.clone()
+                title_element.remove(self.POST_TITLE_REMOVE_CSS)
+            if self.POST_EQ:
+                title_element = title_element.eq(int(self.POST_EQ))
+            if self.POST_TITLE_ATTR:
+                title_string = title_element.attr(self.POST_TITLE_ATTR)
+            else:
+                title_string = title_element.text()
+            if self.POST_TITLE_REPLACE_RE:
+                title_string = self.replace_str(self.POST_TITLE_REPLACE_RE, self.POST_TITLE_REPLACE_STRING, title_string)
 
     # author
         author_element = res(self.POST_AUTHOR_CSS)
@@ -549,15 +586,15 @@ class CrawlerClient(Crawler):
 
 
 if __name__ == '__main__':
-    sitename = 'eyny'
-    news_type = 'eyny'
+    sitename = 'pcbaby'
+    news_type = '新手妈妈'
     test_set = {
         'entry': {
-            'url': 'http://www01.eyny.com/forum.php?mod=forumdisplay&fid=27&page=EY2Y69P2',
+            'url': 'http://bbs.pcbaby.com.cn/forum-1948.html',
             'sitename': sitename, 'type': news_type, 'flag': 'entry'
         },
         'item': {  # for normal item parse
-            'url': 'http://www01.eyny.com/thread-11433448-1-EY2Y69P2.html',
+            'url': 'http://bbs.pcbaby.com.cn/topic-9881876.html',
             'sitename': sitename, 'type': news_type, 'flag': 'item'
         }
     }

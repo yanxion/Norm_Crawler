@@ -10,21 +10,23 @@ from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 class CrawlerTestClass():
     def __init__(self, **kwargs):
         self.crawler_data = CrawlerDataWrapper()
-        self.entry_num = 2
+        # Default Crawl Page .
+        self.entry_num = 10
         try:
             self.crawler_name = kwargs['crawler_name']
             self.url = kwargs['url']
             self.sitename = kwargs['sitename']
             self.type = kwargs['type']
             self.flag = kwargs['flag']
+            self.context = kwargs['context']
         except Exception as e:
-            raise "Parameter error ."
+            raise Exception("Parameter error .")
         try:
             codecs.open(self.crawler_name + '_' + self.type + "_Entry.txt", "w", "utf-8")
             codecs.open(self.crawler_name + '_' + self.type + "_Item.txt", "w", "utf-8")
             codecs.open(self.crawler_name + '_' + self.type + "_Data.txt", "w", "utf-8")
         except:
-            raise "Create a file error ."
+            raise Exception("Create a file error .")
 
     def crawler_test_start(self):
         # Dynamic import Crawler Class .
@@ -32,23 +34,22 @@ class CrawlerTestClass():
             mod = importlib.import_module('Crawlers.' + self.crawler_name + '.CrawlerClient')
             myclass = getattr(mod, 'CrawlerClient')
         except:
-            raise "Import module error ."
+            raise Exception("Import module error .")
         # simulation Job List .
-        test_set = {'url': self.url, 'sitename': self.sitename, 'type': self.type, 'flag': self.flag}
+        test_set = {'url': self.url, 'sitename': self.sitename, 'type': self.type, 'flag': self.flag, 'context': self.context}
 
         if self.flag == 'entry':
-            # Default Crawl 2 Page .
             for i in range(self.entry_num):
                 # Crawl entry Page .
                 mo = myclass(**test_set)
                 self.crawler_data = mo.crawl()
                 # Write item to the file .
                 self.write_txt_file(self.crawler_data.get_data())
-
                 item_test_set = test_set.copy()
                 for j in range(len(self.crawler_data.get_data()['item_job'])):
                     item_test_set['url'] = self.crawler_data.get_data()['item_job'][j]['url']
                     item_test_set['flag'] = 'item'
+                    item_test_set['context'] = self.crawler_data.get_data()['item_job'][j]['context']
                     item_mo = myclass(**item_test_set)
                     item_data = item_mo.crawl()
                     # Write data to the file .
@@ -68,7 +69,7 @@ class CrawlerTestClass():
             self.crawler_data = mo.crawl()
             self.write_txt_file(self.crawler_data.get_data())
         else:
-            raise "flag value input error ."
+            raise Exception("flag value input error .")
 
     def write_txt_file(self, data):
         # write some to the file , and check if value is null then dont write.
@@ -104,6 +105,8 @@ if __name__ == '__main__':
             argv['type'] = sys.argv[i + 1].decode('big5')
         elif sys.argv[i] == '--f':
             argv['flag'] = sys.argv[i + 1].decode('big5')
+        elif sys.argv[i] == '--x':
+            argv['context'] = sys.argv[i + 1].decode('big5')
 
     c = CrawlerTestClass(**argv)
     c.crawler_test_start()

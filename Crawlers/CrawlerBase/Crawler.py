@@ -15,6 +15,7 @@ class Crawler(object):
         self.sitename = kwargs['sitename']
         self.type = kwargs['type']
         self.flag = kwargs['flag']
+        self.context = kwargs['context']
         self.crawl_limit_count = 400
         self.crawl_limit_page = 20
         self.html = None
