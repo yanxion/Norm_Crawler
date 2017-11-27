@@ -36,15 +36,15 @@ class Crawler_Proxy_Util:
 
     def get_random_headers(self):
         headers_user_agent = [
-            # "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko",
-            # "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36",
-            # "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko",
+            "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0",
             "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.276 Safari/537.36"
         ]
         headers = {
-            # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            # "Accept-Encoding": "gzip, deflate, sdch",
-            # "Accept-Language": "zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Encoding": "gzip, deflate, sdch",
+            "Accept-Language": "zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4",
             "User-Agent": headers_user_agent[random.randint(0, len(headers_user_agent) - 1)],
         }
         return headers
@@ -158,4 +158,5 @@ if __name__ == '__main__':
     # print a.proxy_requests("http://httpbin.org/headers")
 
     # a.http_header()
+    print a.proxy_requests('http://httpbin.org/headers')
     a.terminate()
