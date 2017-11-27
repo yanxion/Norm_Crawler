@@ -27,13 +27,13 @@ class CrawlerClient(Crawler):
         self.user_info = {}
         self.post_data = {}
         self.m_util = m_weibo_util.m_weibo_util()
-        self.m_cookies = self.m_util.login('00886974403106', 'Abcd1234!')
+        self.m_cookies = self.m_util.get_cookies('username', 'password')
         # self.m_cookies = {
         #     "Cookies": "H5_INDEX=0_all; H5_INDEX_TITLE=%E5%B0%8F%E8%B3%87III201701; _T_WM=291f6d6d18abb60a9957b34ac52c1d48; H5:PWA:UID=1; ALF=1512629751; SCF=AljwARrW8XODcbjTChFdgLZIgkXpxse4oI6mfhOEh9BKd9WGkxpi-u8a5eHXgUMBa0NFXoSCHnBAoKMFWDb9MF4.; SUB=_2A253BSq6DeRhGeBN7VES9yjEyj-IHXVUCbbyrDV6PUJbktBeLUb_kW2bzbbJa6JTaoSq5YgTwMMp2x3jDw..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5WXbRZKMGDEEi8D0Z9XzwV5JpX5K-hUgL.Foq0Soe0S0qReKe2dJLoIpjLxK-LBo5L12qLxKnLBoeL1hUiC-.Eeh2Neh2t; SUHB=0qj0iLsEK7Ti_d; SSOLoginState=1510038250; M_WEIBOCN_PARAMS=featurecode%3D20000320%26luicode%3D10000011%26lfid%3D1076032431578944%26fid%3D1076032431578944%26uicode%3D10000011"
         # }
 
         self.w_util = w_weibo_util.w_weibo_util()
-        self.w_cookies = self.w_util.login('00886974403106', 'Abcd1234!')
+        self.w_cookies = self.w_util.get_cookies('username', 'password')
         # self.w_cookies = {
         #     "Cookies": "_s_tentry=bookshadow.com; Apache=7826666980981.827.1499927382935; SINAGLOBAL=7826666980981.827.1499927382935; ULV=1499927382955:1:1:1:7826666980981.827.1499927382935:; TC-Page-G0=cdcf495cbaea129529aa606e7629fea7; TC-V5-G0=c427b4f7dad4c026ba2b0431d93d839e; __gads=ID=7b3c17eab87a77f2:T=1504750777:S=ALNI_MZKE9frs0WAGan0xHEOwk9fKkSY7w; UM_distinctid=15e5a22bce438b-0a9aad5ed-44490e20-1fa400-15e5a22bce56ad; YF-V5-G0=69afb7c26160eb8b724e8855d7b705c6; YF-Ugrow-G0=8751d9166f7676afdce9885c6d31cd61; appkey=; YF-Page-G0=2d32d406b6cb1e7730e4e69afbffc88c; TC-Ugrow-G0=370f21725a3b0b57d0baaf8dd6f16a18; WBtopGlobal_register_version=8ebe9c2598f18a02; httpsupgrade_ab=SSL; UOR=bookshadow.com,widget.weibo.com,www.google.com.tw; wb_cusLike_6363376813=N; _ga=GA1.2.1456780803.1502090981; _gid=GA1.2.757132637.1510037719; SCF=AljwARrW8XODcbjTChFdgLZIgkXpxse4oI6mfhOEh9BK3s-GU1ATjmQPZ3f9aMKkZq2pDzyY0kktamFt3aaHKPA.; SUB=_2A253BSioDeRhGeBN7VES9yjEyj-IHXVUcx1grDV8PUNbmtBeLRP9kW9c2RjrGgDmYs09Y4TZxl7ONUeXbQ..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5WXbRZKMGDEEi8D0Z9XzwV5JpX5K2hUgL.Foq0Soe0S0qReKe2dJLoIpjLxK-LBo5L12qLxKnLBoeL1hUiC-.Eeh2Neh2t; SUHB=0nlu7bMvgpFy1O; ALF=225458837751; SSOLoginState=1510037752"
         # }
@@ -266,7 +266,7 @@ class CrawlerClient(Crawler):
             if res('script').eq(i).text().find('"domid":"Pl_Official_PersonalInfo__58"') >= 0:
                 profile_data = res('script').eq(i).text()
                 profile_jdata = json.loads(profile_data.replace('FM.view(', '')[:-1])
-        print profile_jdata['html']
+        # print profile_jdata['html']
         res = PyQuery(profile_jdata['html'])
         for i in range(res('div.PCD_text_b2').length):
             title = res('div.PCD_text_b2').eq(i).find('div.obj_name').text()
