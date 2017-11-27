@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
+
+import time
+
 sys.path.append('../../')
 import importlib
 import codecs
@@ -12,6 +15,7 @@ class CrawlerTestClass():
         self.crawler_data = CrawlerDataWrapper()
         # Default Crawl Page .
         self.entry_num = 10
+        self.delay = 0.2
         try:
             self.crawler_name = kwargs['crawler_name']
             self.url = kwargs['url']
@@ -47,6 +51,7 @@ class CrawlerTestClass():
                 self.write_txt_file(self.crawler_data.get_data())
                 item_test_set = test_set.copy()
                 for j in range(len(self.crawler_data.get_data()['item_job'])):
+                    time.sleep(self.delay)
                     item_test_set['url'] = self.crawler_data.get_data()['item_job'][j]['url']
                     item_test_set['flag'] = 'item'
                     item_test_set['context'] = self.crawler_data.get_data()['item_job'][j]['context']
@@ -65,6 +70,7 @@ class CrawlerTestClass():
 
         elif self.flag == 'item':
             # just crawl item .
+            time.sleep(self.delay)
             mo = myclass(**test_set)
             self.crawler_data = mo.crawl()
             self.write_txt_file(self.crawler_data.get_data())
@@ -107,6 +113,10 @@ if __name__ == '__main__':
             argv['flag'] = sys.argv[i + 1].decode('big5')
         elif sys.argv[i] == '--x':
             argv['context'] = sys.argv[i + 1].decode('big5')
-
     c = CrawlerTestClass(**argv)
     c.crawler_test_start()
+
+    # example params
+
+    # --c crawlername --u url --s sitename --t type --f entry --x '{}'
+    # --c www_msn_com --u https://www.msn.com/zh-tw/travel/hiking --s MSNnews --t 登山 --f entry --x '{}'
