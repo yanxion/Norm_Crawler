@@ -6,9 +6,9 @@ import urlparse
 import re
 sys.path.append('../../')
 from Util.HashUtil.Sha import sha1
+from Util.SQL_Connect.SQL_Connect import SQL_Connect
 from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 from Util.DateTimeUtil import DateTimeUtil
-from Util.Forum_MySqlDB_util.Forum_MySqlDB_util import Forum_MySqlDB_util
 from Util.TextUtil.SpecialCharUtil import remove_emoji
 from pyquery import PyQuery
 from Crawlers.CrawlerBase.Crawler import Crawler
@@ -20,8 +20,8 @@ class CrawlerClient(Crawler):
         super(CrawlerClient, self).__init__(**kwargs)
         self.crawler_data = CrawlerDataWrapper()
         # mysql connect
-        self.forum_mysql = Forum_MySqlDB_util()
-        self.forum_mysql.connect_mysql()
+        self.db = SQL_Connect()
+        self.db.connect_mysql()
         # insert post data if has then update
         self.forum_post_sql = "INSERT INTO post (key_url,key_url_sha,author,title,content,comment_count,sitename," \
                               "type,time,crawltime) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" \
@@ -591,11 +591,11 @@ if __name__ == '__main__':
     test_set = {
         'entry': {
             'url': 'http://bbs.pcbaby.com.cn/forum-1948.html',
-            'sitename': sitename, 'type': news_type, 'flag': 'entry'
+            'sitename': sitename, 'type': news_type, 'flag': 'entry', 'context': ''
         },
         'item': {  # for normal item parse
             'url': 'http://bbs.pcbaby.com.cn/topic-9881876.html',
-            'sitename': sitename, 'type': news_type, 'flag': 'item'
+            'sitename': sitename, 'type': news_type, 'flag': 'item', 'context': ''
         }
     }
     a = CrawlerClient(**test_set['entry'])
