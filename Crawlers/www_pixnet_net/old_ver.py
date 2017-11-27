@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+
 sys.path.append('../../')
 from pyquery import PyQuery as pq
 from datetime import datetime
@@ -8,14 +9,18 @@ from Crawlers.CrawlerBase.Crawler import Crawler
 import re
 from Util.CrawlerDataWrapper.CrawlerDataWrapper import CrawlerDataWrapper
 from Util.TextUtil.SpecialCharUtil import remove_emoji
-from Util.SQL_Connect.SQL_Connect import Get_Connect_ini
+from Util.SQL_Connect.SQL_Connect import SQL_Connect
+from Util.Forum_MySqlDB_util.Forum_MySqlDB_util import Forum_MySqlDB_util
+
 
 class CrawlerClient(Crawler):
     def __init__(self, **kwargs):
-        self.crawler_data = CrawlerDataWrapper()
         super(CrawlerClient, self).__init__(**kwargs)
+        self.crawler_data = CrawlerDataWrapper()
         self.CRAWLER_NAME = 'www_pixnet_net'
-        self.SQL_Data = Get_Connect_ini()
+        self.SQL_Data = SQL_Connect.get_connect_ini()
+        print self.SQL_Data
+        exit()
         # self.db = MySQLdb.connect(self.SQL_Data['Host'], self.SQL_Data['Account'], self.SQL_Data['Password'], self.SQL_Data['Database'], charset='utf8')
         self.db = MySQLdb.connect("localhost", "user", "user", "blog_crawler", charset='utf8')
         self.cursor = self.db.cursor()
@@ -25,10 +30,11 @@ class CrawlerClient(Crawler):
         self.Select_Content_repeat = "SELECT url_sha FROM blog_content where url_sha = SHA(%s)"
         self.Select_meta_repeat = "SELECT url FROM blog_meta where url = (%s)"
         self.meta_flag = 0
+
     def crawl(self):
 
         if self.flag == 'entry':
-            if (self.url.find('www.pixnet.net/blog/articles/category/')>1):
+            if (self.url.find('www.pixnet.net/blog/articles/category/') > 1):
                 # find next page, and append to job_list step 1.
                 Web_url = self.url
                 Page_num = self.url
@@ -41,7 +47,7 @@ class CrawlerClient(Crawler):
                     Web_url += "/hot/"
             else:
                 # find next page, and append to job_list step 1.
-                Web_url =  self.url
+                Web_url = self.url
                 Page_num = self.url
                 if Web_url.count('/') == 3:
                     Web_url += "/"
@@ -70,7 +76,6 @@ class CrawlerClient(Crawler):
             else:
                 self.parse_author(self.url)
 
-
             # append entry
             Job_Data = {
                 'sitename': self.sitename,
@@ -91,7 +96,7 @@ class CrawlerClient(Crawler):
         elif self.flag == 'content':
             self.parse_blog_content(self.url)
 
-    def parse_rank(self,Web_url):
+    def parse_rank(self, Web_url):
         url_Data = self.Blog_List_url_Crawler(Web_url)
         if not url_Data == []:
             Job_Data = {
@@ -103,12 +108,11 @@ class CrawlerClient(Crawler):
             }
 
             for i in url_Data:
-                Job_Data['url'] = re.sub("\-.*", "",i)
+                Job_Data['url'] = re.sub("\-.*", "", i)
                 print Job_Data
                 self.crawler_data.append_item_job(**Job_Data)
 
-
-    def parse_author(self,Web_url):
+    def parse_author(self, Web_url):
         url_Data = self.Blog_Author_List_Crawler(Web_url)
         if not url_Data == []:
             Job_Data = {
@@ -119,7 +123,7 @@ class CrawlerClient(Crawler):
                 'flag': 'item'
             }
             for i in url_Data:
-                Job_Data['url'] = re.sub("\-.*", "",i)
+                Job_Data['url'] = re.sub("\-.*", "", i)
                 if self.meta_flag == 1:
                     self.meta_flag = 0
                     Job_Data['flag'] = 'item'
@@ -129,7 +133,7 @@ class CrawlerClient(Crawler):
 
                 self.crawler_data.append_item_job(**Job_Data)
 
-    def parse_blog_content(self,Web_url):
+    def parse_blog_content(self, Web_url):
         # Content
         print "Try Crawl Content " + Web_url + "... ",
         try:
@@ -150,7 +154,7 @@ class CrawlerClient(Crawler):
         except Exception as e:
             print e
 
-    def parse_blog_meta(self,Web_url):
+    def parse_blog_meta(self, Web_url):
         # Meta
         print "Try Crawl Meta " + Web_url + "... ",
         try:
@@ -177,11 +181,11 @@ class CrawlerClient(Crawler):
         pass
 
     # Rank List Analysis.
-    def Blog_List_url_Crawler(self,Web_url):
+    def Blog_List_url_Crawler(self, Web_url):
         url = []
         res = pq(Web_url, encoding="utf-8")
 
-        if (Web_url[len(Web_url)-2:] == "/1"):
+        if (Web_url[len(Web_url) - 2:] == "/1"):
             Blog_List_Name = res('div.featured').find('h3').text()
             Blog_List_Url = res('div.featured').find('h3').find('a').attr('href')
             url.append(Blog_List_Url)
@@ -195,7 +199,7 @@ class CrawlerClient(Crawler):
         return url
 
     # Author List Analysis.
-    def Blog_Author_List_Crawler(self,Web_url):
+    def Blog_Author_List_Crawler(self, Web_url):
         url = []
         res = pq(Web_url, encoding="utf-8")
 
@@ -205,7 +209,7 @@ class CrawlerClient(Crawler):
         return url
 
     # Blog Meta Analysis.
-    def Blog_Meta_Crawler(self,Web_url):
+    def Blog_Meta_Crawler(self, Web_url):
         Data = []
         res = pq(Web_url, encoding="utf-8")
 
@@ -223,8 +227,8 @@ class CrawlerClient(Crawler):
         Data.append(Blog_Url)
         return Data
 
-    #Blog Content Analysis.
-    def Blog_Content_Crawler(self,Web_url):
+    # Blog Content Analysis.
+    def Blog_Content_Crawler(self, Web_url):
         Data = []
         res = pq(Web_url, encoding="utf-8")
         Blog_Domain = Web_url[Web_url.find('//') + 2:Web_url.find('/', Web_url.find('//') + 2)][
@@ -275,17 +279,18 @@ def test():
         'entry': {
             'url': 'https://www.pixnet.net/blog/articles/category/9/',
             # 'url': 'http://fc781117.pixnet.net/blog/',
-            'sitename': sitename, 'type': Blog_type, 'flag': 'entry'
+            'sitename': sitename, 'type': Blog_type, 'flag': 'entry', 'context': '{}'
         },
         'item': {  # for normal item parse
             'url': 'http://tkbeasytest.pixnet.net/blog/post/4578536',
-            'sitename': sitename, 'type': Blog_type, 'flag': 'item'
+            'sitename': sitename, 'type': Blog_type, 'flag': 'item', 'context': '{}'
         }
     }
     cc = CrawlerClient(**test_set['item'])
     cc.crawl()
-    #res = cc.crawl()
-    #print json.dumps(res.get_data(), ensure_ascii=False, indent=4)
+    # res = cc.crawl()
+    # print json.dumps(res.get_data(), ensure_ascii=False, indent=4)
+
 
 if __name__ == '__main__':
     test()
