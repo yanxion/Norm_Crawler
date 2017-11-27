@@ -179,7 +179,8 @@ class CrawlerClient(Crawler):
             'type': self.type,
             'url': item_url,
             'crawler_name': self.CRAWLER_NAME,
-            'flag': 'item'
+            'flag': 'item',
+            'context': '{}'
         }
         return item_data
 
@@ -198,7 +199,8 @@ class CrawlerClient(Crawler):
                 'type': self.type,
                 'url': next_page_url,
                 'crawler_name': self.CRAWLER_NAME,
-                'flag': 'entry'
+                'flag': 'entry',
+                'context': '{}'
             }
             return entry_data
 
@@ -543,11 +545,11 @@ if __name__ == '__main__':
     test_set = {
         'entry': {
             'url': 'http://talk.wed168.com.tw/indexType4_29.html',
-            'sitename': sitename, 'type': news_type, 'flag': 'entry'
+            'sitename': sitename, 'type': news_type, 'flag': 'entry', 'context': ''
         },
         'item': {  # for normal item parse
             'url': 'http://talk.wed168.com.tw/188630.html',
-            'sitename': sitename, 'type': news_type, 'flag': 'item'
+            'sitename': sitename, 'type': news_type, 'flag': 'item', 'context': ''
         }
     }
     a = CrawlerClient(**test_set['entry'])
