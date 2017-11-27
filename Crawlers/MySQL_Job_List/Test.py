@@ -2,7 +2,7 @@
 
 import MySQLdb
 from datetime import datetime
-from Crawlers.www_pixnet_net.CrawlerClient import CrawlerClient
+from Crawlers.www_pixnet_net.old_ver import CrawlerClient
 
 
 db = MySQLdb.connect("localhost", "user", "user", "blog_crawler", charset='utf8')

@@ -30,7 +30,11 @@ class SQL_Connect():
                                   , charset="utf8")
         self.cursor = self.db.cursor()
 
-    def insert_sql(self, sql_str):
+    def insert_sql(self, sql_str, data_dict=''):
+        if data_dict:
+            self.cursor.execute(sql_str, data_dict)
+            self.db.commit()
+            return
         self.cursor.execute(sql_str)
         self.db.commit()
 

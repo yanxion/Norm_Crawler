@@ -1,27 +1,16 @@
 # -*- coding: utf-8 -*-
-import urlparse
+import base64
 
+import binascii
 import requests
-from pyquery import PyQuery
-from Util.Forum_MySqlDB_util.Forum_MySqlDB_util import Forum_MySqlDB_util
-import os
 import re
-import dateparser
-import ruamel
-from Util.Crawler_Proxy_Util.Crawler_Proxy_Util import Crawler_Proxy_Util
+import urllib
+from urllib import quote
 
+import rsa
 
-a = Crawler_Proxy_Util()
-r = a.proxy_requests("http://myip.com", encoding='utf-8')
-res = PyQuery(r)
-print res('body')
-# print dateparser.parse('12/12/12')
-# print dateparser.parse(u'星期一, 12 Dec 2014 10:55:50')
-# print dateparser.parse(u'2017/二月/05 5:30 PM')
-# print dateparser.parse(u'2017/07/05 5:30 早上')
-# print dateparser.parse(u'June 13 17 17:50:22')
-# print dateparser.parse(u'2小時前')
-# print dateparser.parse(u'2017年3月5日 5点30分')
+time_am = ['\\bAM\\b', '\\bam\\b', '\\bAm\\b', '\\ba.m.\\b', u'上午']
 
+time_am.append('123')
 
-
+print time_am
