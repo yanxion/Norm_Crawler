@@ -51,6 +51,12 @@ class SQL_Connect():
         else:
             return tuple('0')
 
+    def select_sql_all(self, sql_str):
+        self.cursor.execute(sql_str)
+        return self.cursor
+        # for row in self.cursor:
+        #     print row
+
     def db_close(self):
         self.db.close()
 
@@ -69,7 +75,6 @@ if __name__ == '__main__':
         for j in range(1, 5, +1):
             list1.append((i, j))
         list2.append((list1))
-
 
     print list
     print (list1)
