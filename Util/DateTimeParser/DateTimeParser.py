@@ -287,6 +287,13 @@ class Datetimeparser():
         unix_time = self.datetime_to_time(today)
         return unix_time
 
+    def get_yesterday(self, time_format='%Y-%m-%d', day=1):
+        today = datetime.date.today()
+        oneday = datetime.timedelta(days=day)
+        yesterday = today - oneday
+        timestamp = time.mktime(datetime.datetime.strptime(str(yesterday), '%Y-%m-%d').timetuple())
+        return datetime.datetime.fromtimestamp(int(timestamp)).strftime(time_format)
+
     @staticmethod
     def replace_str(re_pattern_list, re_replacement_list, origin_str):
         for pattern, repl in zip(re_pattern_list, re_replacement_list):
