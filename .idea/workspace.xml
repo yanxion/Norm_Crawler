@@ -2,9 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26194982-fec1-43d2-827b-b0b86e73019c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/DateTimeParser/DateTimeParser.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/DateTimeParser/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/SQL_Connect/SQL_Connect.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/SQL_Connect/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/TextUtil/SpecialCharUtil.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/TextUtil/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/ptt_report/Util/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/DateTimeParser/DateTimeParser.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/DateTimeParser/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/SQL_Connect/SQL_Connect.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/SQL_Connect/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/TextUtil/SpecialCharUtil.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/TextUtil/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/DateTimeParser/DateTimeParser.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/DateTimeParser/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/SQL_Connect/SQL_Connect.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/SQL_Connect/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/TextUtil/SpecialCharUtil.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/TextUtil/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/test/config.ini" afterPath="$PROJECT_DIR$/Crawlers/test/config.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/test/test.py" afterPath="$PROJECT_DIR$/Crawlers/test/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/www_angelibrary_com/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/www_angelibrary_com/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawlers/zi_media/CrawlerClient.py" afterPath="$PROJECT_DIR$/Crawlers/zi_media/CrawlerClient.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Others/ec_sql_transfer_comment/Util/TextUtil/SpecialCharUtil.py" afterPath="$PROJECT_DIR$/Others/ec_sql_transfer_comment/Util/TextUtil/SpecialCharUtil.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Others/ec_sql_transfer_comment/transfer_comment.py" afterPath="$PROJECT_DIR$/Others/ec_sql_transfer_comment/transfer_comment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/DateTimeParser/DateTimeParser.py" afterPath="$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/DateTimeParser/DateTimeParser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/TextUtil/SpecialCharUtil.py" afterPath="$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/TextUtil/SpecialCharUtil.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Others/ec_sql_transfer_main/transfer_main.py" afterPath="$PROJECT_DIR$/Others/ec_sql_transfer_main/transfer_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Others/taobao_brand_handle/brand_handle.py" afterPath="$PROJECT_DIR$/Others/taobao_brand_handle/brand_handle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util/Crawler_Proxy_Util/Crawler_Proxy_Util.py" afterPath="$PROJECT_DIR$/Util/Crawler_Proxy_Util/Crawler_Proxy_Util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py" afterPath="$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py" afterPath="$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util/TextUtil/SpecialCharUtil.py" afterPath="$PROJECT_DIR$/Util/TextUtil/SpecialCharUtil.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,62 +51,40 @@
     <favorites_list name="Crawlers" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47616175">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CrawlerClient.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="209">
-                  <caret line="29" column="71" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="71" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="m_weibo_util.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Crawlers/weibo/m_weibo_util.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="546">
-                  <caret line="163" column="28" lean-forward="true" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#24#37#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Crawlers/test/test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
-                  <caret line="18" column="13" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#24#37#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="w_weibo_util.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Crawlers/weibo/w_weibo_util.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
-                  <folding>
-                    <element signature="e#24#37#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="excel_make.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Others/excel_make/excel_make.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ibuzz_excel.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Others/ibuzz_excel/ibuzz_excel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="45" column="67" lean-forward="false" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+              <folding>
+                <element signature="e#23#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Crawlers/test/test2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,39 +95,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>https://www.msn.com/zh-tw/travel/other/%E5%BE%9E%E7%B6%93%E5%85%B8%E5%88%B0%E5%89%8D%E8%A1%9B%EF%BC%8C%E7%9C%8B%E5%8F%B0%E7%81%A3%E7%9A%84%E8%A8%AD%E8%A8%88%E5%BA%95%E8%98%8A%E2%94%80%E3%80%8C%E5%85%A9%E5%B2%B8%E8%A8%AD%E8%A8%88%E7%B2%BE%E8%8B%B1%E4%BA%A4%E6%B5%81%E4%B9%8B%E6%97%85%E3%80%8D/ar-AAuf2Lr</find>
-      <find>&quot;domid&quot;:&quot;Pl_Official_PersonalInfo__</find>
-      <find>PCD_text_b2</find>
-      <find>Pl_Official_WeiboDetail__</find>
-      <find>https://www.msn.com/http</find>
-      <find>https://www.msn.com/https%3A</find>
-      <find>careerandeducation</find>
-      <find>PostData</find>
-      <find>RSAEncoder</find>
-      <find>quote</find>
-      <find>https://www.msn.com/zh-tw/travel/hiking/%E3%80%90%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E%E7%85%A7%E7%89%87%E3%80%91%E7%99%BB%E5%B1%B1%E8%88%87%E5%81%A5%E8%A1%8C-%E4%B8%80%E6%89%8B%E7%85%A7%E7%89%87%E8%B3%87%E8%A8%8A/ss-BBAIXVn</find>
-      <find>颱風尼莎撲台，花蓮一支22人登山隊伍趕在颱風登陸前自秀林鄉沙婆礑下山，上</find>
-      <find>timestr_fields_format</find>
-      <find>, fields</find>
-      <find>timestring</find>
-      <find>fields</find>
-      <find>self.fields</find>
-      <find>get_timestamp_form_format</find>
-      <find>get_year_padding</find>
-      <find>datetime_to_time</find>
-      <find>start_of_the_day</find>
-      <find>datetime_to_timestr</find>
-      <find>parse_time_str</find>
-      <find>time_am</find>
-      <find>proxy_util</find>
-      <find>m_login</find>
-      <find>user_info</find>
-      <find>-----</find>
+      <find>sql_cursor</find>
+      <find>time.s</find>
+      <find>comments_python</find>
       <find>print</find>
-      <find>https://m.weibo.cn/api/container/getIndex</find>
+      <find>comment_python</find>
+      <find>get_yes</find>
+      <find>get_yesterday</find>
+      <find>weibo</find>
+      <find>exit</find>
+      <find>user</find>
+      <find>item_batch_insert_sql</find>
+      <find>user_dic_to_tuple</find>
+      <find>row</find>
+      <find>item</find>
+      <find>crawldate</find>
+      <find>table</find>
+      <find>has we</find>
+      <find>摩曲數位影音有限公司</find>
+      <find>金元寶影音科技有限公司</find>
+      <find>title_names</find>
+      <find>DateTimeUtil</find>
+      <find>20171130</find>
+      <find>tag</find>
+      <find>batch_insert_comment_sql</find>
+      <find>insert_content</find>
+      <find>资生堂</find>
+      <find>,</find>
+      <find>taobao_itemlist</find>
+      <find>65</find>
+      <find>seller</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>url_list_python</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -124,65 +137,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Util/MySqlDB_Util/MySqlDB_util.py" />
-        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/Main.py" />
-        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Entry.txt" />
-        <option value="$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py" />
-        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/www_eyny_com_eyny_Item.txt" />
-        <option value="$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/bbs_pcbaby_com_新手媽媽_Item.txt" />
-        <option value="$PROJECT_DIR$/Crawlers/CrawlerTestClass/bbs_pcbaby_com_新手媽媽_Entry.txt" />
-        <option value="$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py" />
-        <option value="$PROJECT_DIR$/Util/Crawler_Proxy_Util/Sql_connect.py" />
-        <option value="$PROJECT_DIR$/Util/SQL_Connect/config.ini" />
-        <option value="$PROJECT_DIR$/Crawlers/www_juksy_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_cichb_gov/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/CrawlerBase/Crawler.py" />
-        <option value="$PROJECT_DIR$/Crawlers/proxy_ip_crawler/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_weibo_com.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_weibo_com/Crawler_Client.py" />
-        <option value="$PROJECT_DIR$/Util/Crawler_Proxy_Util/config.ini" />
-        <option value="$PROJECT_DIR$/Crawlers/www_weibo_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/zi_media/config.ini" />
-        <option value="$PROJECT_DIR$/Crawlers/www_pixnet_net/modify.py" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/www_pixnet_net_美味食記_Entry.txt" />
-        <option value="$PROJECT_DIR$/Util/SQL_Connect/SQL_Connect.py" />
-        <option value="$PROJECT_DIR$/Crawlers/zi_media/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Util/TextUtil/SpecialCharUtil.py" />
-        <option value="$PROJECT_DIR$/Crawlers/bbs_pcbaby_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/talk_wed168_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/talk_wed168_com_food_Data.txt" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/talk_wed168_com_food_Entry.txt" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/talk_wed168_com_food_Item.txt" />
-        <option value="$PROJECT_DIR$/Util/Crawler_Proxy_Util/Crawler_Proxy_Util.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_angelibrary_com/config.ini" />
-        <option value="$PROJECT_DIR$/Crawlers/www_angelibrary_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_msn__com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_兩岸國際_Data.txt" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_科技與科學_Data.txt" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_旅遊_Item.txt" />
-        <option value="$PROJECT_DIR$/Util/CrawlerTestClass/Main.py" />
-        <option value="$PROJECT_DIR$/Crawlers/www_msn_com/CrawlerClient.py" />
-        <option value="$PROJECT_DIR$/Util/DateTimeParser/datetimeparsetest.py" />
-        <option value="$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py" />
-        <option value="$PROJECT_DIR$/Crawlers/m_weibo_cn/m_weibo_login.py" />
-        <option value="$PROJECT_DIR$/Crawlers/m_weibo_cn/w_weibo_login.py" />
         <option value="$PROJECT_DIR$/Crawlers/m_weibo_cn/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/test/111.txt" />
-        <option value="$PROJECT_DIR$/Crawlers/test/test.py" />
-        <option value="$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py" />
         <option value="$PROJECT_DIR$/Crawlers/weibo/w_weibo_util.py" />
         <option value="$PROJECT_DIR$/Crawlers/weibo/m_weibo_util.py" />
+        <option value="$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py" />
+        <option value="$PROJECT_DIR$/Util/taobao_brand_modify/config.ini" />
+        <option value="$PROJECT_DIR$/Util/taobao_brand_modify/brand_modify.py" />
+        <option value="$PROJECT_DIR$/Crawlers/zi_media/CrawlerClient.py" />
+        <option value="$PROJECT_DIR$/Util/SQL_Connect/SQL_Connect.py" />
+        <option value="$PROJECT_DIR$/Others/taobao_brand_modify/brand_modify.py" />
+        <option value="$PROJECT_DIR$/Others/taobao_brand_modify/brand_dic.txt" />
+        <option value="$PROJECT_DIR$/Others/taobao_brand_handle/brand_dic_bak" />
+        <option value="$PROJECT_DIR$/Others/taobao_category_handle/category_dic_bak.txt" />
+        <option value="$PROJECT_DIR$/Others/taobao_category_handle/category_dic.txt" />
+        <option value="$PROJECT_DIR$/Others/excel_make/config2.txt" />
+        <option value="$PROJECT_DIR$/../tkinter/robo3t_re/fail轉換程式.pyw" />
+        <option value="$PROJECT_DIR$/Crawlers/test/1111.txt" />
+        <option value="$PROJECT_DIR$/Others/taobao_sql_transfer/transfer_main.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_comment/transfer_main.py" />
+        <option value="$PROJECT_DIR$/Crawlers/www_msn_com/CrawlerClient.py" />
+        <option value="$PROJECT_DIR$/123/45.py" />
+        <option value="$PROJECT_DIR$/123/123.py" />
+        <option value="$PROJECT_DIR$/Others/weibo_wechat_sql_transfer/transfer_main.py" />
+        <option value="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/DateTimeParser/DateTimeParser.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_comment/Util/DateTimeParser/DateTimeParser.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/DateTimeParser/DateTimeParser.py" />
+        <option value="$PROJECT_DIR$/Others/weibo_sql_transfer/config.ini" />
+        <option value="$PROJECT_DIR$/Others/wechat_sql_transfer/config.ini" />
+        <option value="$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py" />
+        <option value="$PROJECT_DIR$/Others/taobao_url_handle/url_handle.py" />
+        <option value="$PROJECT_DIR$/Others/weibo_sql_transfer/Util/TextUtil/SpecialCharUtil.py" />
+        <option value="$PROJECT_DIR$/Crawlers/test/config.ini" />
+        <option value="$PROJECT_DIR$/Crawlers/test/test.py" />
+        <option value="$PROJECT_DIR$/Others/wechat_sql_transfer/Util/TextUtil/SpecialCharUtil.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/TextUtil/SpecialCharUtil.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_comment/Util/TextUtil/SpecialCharUtil.py" />
+        <option value="$PROJECT_DIR$/Util/TextUtil/SpecialCharUtil.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_main/transfer_main.py" />
+        <option value="$PROJECT_DIR$/Others/weibo_sql_transfer/transfer_main.py" />
+        <option value="$PROJECT_DIR$/Others/wechat_sql_transfer/transfer_main.py" />
+        <option value="$PROJECT_DIR$/Others/ec_sql_transfer_comment/transfer_comment.py" />
+        <option value="$PROJECT_DIR$/Others/ptt_report/ptt_db_config.ini" />
+        <option value="$PROJECT_DIR$/Others/ptt_report/ibuzz_db_config.ini" />
+        <option value="$PROJECT_DIR$/Others/ptt_report/ptt_report.py" />
+        <option value="$PROJECT_DIR$/Others/taobao_brand_handle/brand_dic_bak.txt" />
+        <option value="$PROJECT_DIR$/Others/excel_make/excel_make.py" />
+        <option value="$PROJECT_DIR$/Others/taobao_brand_handle/brand_dic.txt" />
+        <option value="$PROJECT_DIR$/Others/taobao_brand_handle/brand_handle.py" />
+        <option value="$PROJECT_DIR$/Others/taobao_category_handle/category_handle.py" />
+        <option value="$PROJECT_DIR$/Crawlers/test/test2.py" />
+        <option value="$PROJECT_DIR$/Others/ibuzz_excel/ibuzz_excel.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="374" />
-    <option name="y" value="-8" />
-    <option name="width" value="980" />
-    <option name="height" value="571" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="675" />
+    <option name="y" value="-18" />
+    <option name="width" value="983" />
+    <option name="height" value="551" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -219,6 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,57 +254,57 @@
             <path>
               <item name="Crawlers" type="b2602c69:ProjectViewProjectNode" />
               <item name="Crawlers" type="462c0819:PsiDirectoryNode" />
-              <item name="Crawlers" type="462c0819:PsiDirectoryNode" />
-              <item name="weibo" type="462c0819:PsiDirectoryNode" />
+              <item name="Others" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Crawlers" type="b2602c69:ProjectViewProjectNode" />
               <item name="Crawlers" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
+              <item name="Others" type="462c0819:PsiDirectoryNode" />
+              <item name="excel_make" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Crawlers" type="b2602c69:ProjectViewProjectNode" />
               <item name="Crawlers" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
-              <item name="CrawlerTestClass" type="462c0819:PsiDirectoryNode" />
+              <item name="Others" type="462c0819:PsiDirectoryNode" />
+              <item name="ibuzz_excel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Crawlers" type="b2602c69:ProjectViewProjectNode" />
               <item name="Crawlers" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
-              <item name="DateTimeParser" type="462c0819:PsiDirectoryNode" />
+              <item name="Others" type="462c0819:PsiDirectoryNode" />
+              <item name="taobao_brand_handle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Crawlers" type="b2602c69:ProjectViewProjectNode" />
               <item name="Crawlers" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
-              <item name="SQL_Connect" type="462c0819:PsiDirectoryNode" />
+              <item name="Others" type="462c0819:PsiDirectoryNode" />
+              <item name="taobao_category_handle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tkinter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Line" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/P17179/PycharmProjects/Crawlers/Util/Crawler_Proxy_Util/Crawler_Proxy_Util.py" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Others\ibuzz_excel" />
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Others\ptt_report" />
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Others\wechat_sql_transfer" />
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Others\weibo_sql_transfer" />
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Others\weibo_wechat_sql_transfer" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Others" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util\SQL_Connect" />
       <recent name="C:\Users\P17179\PycharmProjects\Crawlers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\www_angelibrary_com" />
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\www_pixnet_net" />
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\zi_media" />
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Util\Crawler_Proxy_Util" />
-      <recent name="C:\Users\P17179\PycharmProjects\Crawlers\Crawlers\talk_wed168_com" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -305,41 +319,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CrawlerClient">
-    <configuration name="CrawlerClient" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Crawlers/weibo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Crawlers" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Util/CrawlerTestClass" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Crawlers" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Util/CrawlerTestClass/Main.py" />
-      <option name="PARAMETERS" value="--c www_msn_com --u https://www.msn.com/zh-tw/travel/hiking --s MSNnews --t 登山 --f entry --x '{}'" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.ibuzz_excel">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -404,7 +384,75 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="brand_handle" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Others/taobao_brand_handle" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Crawlers" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Others/taobao_brand_handle/brand_handle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="category_handle" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Others/taobao_category_handle" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Crawlers" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Others/taobao_category_handle/category_handle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="ibuzz_excel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Others/ibuzz_excel" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Crawlers" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Others/ibuzz_excel/ibuzz_excel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="ptt_report" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Others/ptt_report" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Crawlers" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Others/ptt_report/ptt_report.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -416,21 +464,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Crawlers" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawlers/test/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawlers/test/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.CrawlerClient" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.test2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ptt_report" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ibuzz_excel" />
+      <item index="3" class="java.lang.String" itemvalue="Python.brand_handle" />
+      <item index="4" class="java.lang.String" itemvalue="Python.category_handle" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.CrawlerClient" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Main" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.ibuzz_excel" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.category_handle" />
+        <item index="3" class="java.lang.String" itemvalue="Python.brand_handle" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ptt_report" />
       </list>
     </recent_temporary>
   </component>
@@ -489,26 +541,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11673774" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1337953" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33225808" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26666668" sideWeight="0.5170576" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27741936" sideWeight="0.53198296" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30322582" sideWeight="0.48294243" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27741936" sideWeight="0.46801707" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18763326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3967742" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -524,273 +576,396 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Util/SQL_Connect/SQL_Connect.py</url>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Util/Crawler_Proxy_Util/Crawler_Proxy_Util.py</url>
           <line>6</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Crawlers/www_rmim_com/NewsFetcher.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="75" />
+      <option name="time" value="92" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_juksy_com/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5605">
-          <caret line="313" column="30" lean-forward="true" selection-start-line="313" selection-start-column="30" selection-end-line="313" selection-end-column="30" />
+        <state relative-caret-position="-4064">
+          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_angelibrary_com/config.ini">
+    <entry file="file://$PROJECT_DIR$/Others/weibo_sql_transfer/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Others/wechat_sql_transfer/Util/DateTimeParser/DateTimeParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2470">
-          <caret line="183" column="9" lean-forward="false" selection-start-line="166" selection-start-column="7" selection-end-line="183" selection-end-column="9" />
+        <state relative-caret-position="168">
+          <caret line="287" column="37" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_mpfinance_com/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Crawlers/test/1111.txt" />
+    <entry file="file://$PROJECT_DIR$/Crawlers/www_msn_com/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="410">
+          <caret line="153" column="18" lean-forward="false" selection-start-line="153" selection-start-column="18" selection-end-line="153" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/zi_media/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Others/wechat_sql_transfer/Util/TextUtil/SpecialCharUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3040">
-          <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+        <state relative-caret-position="741">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/BaseTemplate/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Others/ec_sql_transfer_main/Util/TextUtil/SpecialCharUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1539">
-          <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+        <state relative-caret-position="741">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_財經_Entry.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_國內_Entry.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_國內_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_國內_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_兩岸國際_Entry.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_兩岸國際_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_兩岸國際_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_財經_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_財經_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Crawlers/Forum_Template/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Others/ec_sql_transfer_comment/Util/TextUtil/SpecialCharUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="256" column="18" lean-forward="false" selection-start-line="256" selection-start-column="12" selection-end-line="256" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="741">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_頭條_Entry.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_頭條_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_頭條_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Crawlers/CrawlerBase/Crawler.py">
+    <entry file="file://$PROJECT_DIR$/Others/weibo_sql_transfer/Util/TextUtil/SpecialCharUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="133">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_科技與科學_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_科技與科學_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_運動_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_運動_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_娛樂_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_旅遊_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_個人理財_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_個人理財_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_旅遊_Data.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_娛樂_Item.txt" />
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_登山_Entry.txt">
+    <entry file="file://$PROJECT_DIR$/Util/TextUtil/SpecialCharUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/weibo_sql_transfer/transfer_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/test/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ec_sql_transfer_main/transfer_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ec_sql_transfer_comment/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/wechat_sql_transfer/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ptt_report/ptt_db_config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ptt_report/ibuzz_db_config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util/Forum_MySqlDB_util/Forum_MySqlDB_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/wechat_sql_transfer/transfer_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ptt_report/Util/TextUtil/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_登山_Item.txt">
+    <entry file="file://$PROJECT_DIR$/Crawlers/www_yzzk_com/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1273">
-          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/www_msn_com_登山_Data.txt">
+    <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3047">
-          <caret line="656" column="39" lean-forward="true" selection-start-line="656" selection-start-column="39" selection-end-line="656" selection-end-column="39" />
+        <state relative-caret-position="-2508">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/CrawlerTestClass/Main.py">
+    <entry file="file://$PROJECT_DIR$/Crawlers/www_rmim_com/NewsFetcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-418">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#34#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-173">
+          <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="73" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/excel_make/config2.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ibuzz_excel/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/openpyxl/writer/excel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/openpyxl/workbook/workbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="348" column="0" lean-forward="false" selection-start-line="348" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawlers/www_eyny_com/CrawlerClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="276" column="39" lean-forward="false" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Util/DateTimeUtil/DateTimeUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1134">
-          <caret line="160" column="6" lean-forward="false" selection-start-line="160" selection-start-column="6" selection-end-line="160" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_msn_com/CrawlerClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="72" column="28" lean-forward="false" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Util/DateTimeParser/datetimeparsetest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="29" column="7" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="893">
+          <caret line="47" column="10" lean-forward="false" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Util/DateTimeParser/DateTimeParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="329" column="0" lean-forward="true" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
-          <folding>
-            <element signature="e#712#727#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="46">
+          <caret line="311" column="4" lean-forward="false" selection-start-line="311" selection-start-column="4" selection-end-line="311" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/Crawler_Proxy_Util/Crawler_Proxy_Util.py">
+    <entry file="file://$PROJECT_DIR$/Others/ec_sql_transfer_comment/transfer_comment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="1683">
+          <caret line="203" column="43" lean-forward="false" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ptt_report/ptt_report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Util/DocFetcher/enum.py">
+    <entry file="file://$PROJECT_DIR$/Crawlers/zi_media/CrawlerClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="469" column="11" lean-forward="true" selection-start-line="469" selection-start-column="11" selection-end-line="469" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_pixnet_net/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/test/111.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="-133">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Util/SQL_Connect/SQL_Connect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        <state relative-caret-position="589">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="31" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/www_angelibrary_com/CrawlerClient.py">
+    <entry file="file://$PROJECT_DIR$/Others/taobao_url_handle/url_handle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state relative-caret-position="462">
+          <caret line="81" column="16" lean-forward="false" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="363" column="0" lean-forward="false" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_category_handle/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_brand_handle/brand_dic_bak.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_brand_handle/brand_handle.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_brand_handle/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_brand_handle/brand_handle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="112" column="36" lean-forward="true" selection-start-line="112" selection-start-column="36" selection-end-line="112" selection-end-column="36" />
+          <folding>
+            <element signature="e#23#36#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="903" column="8" lean-forward="false" selection-start-line="903" selection-start-column="8" selection-end-line="903" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawlers/test/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/weibo/w_config.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="247">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/weibo/m_config.txt">
+    <entry file="file://C:/Python27/Lib/site-packages/openpyxl/worksheet/worksheet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="270" column="8" lean-forward="false" selection-start-line="270" selection-start-column="8" selection-end-line="270" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/weibo/w_weibo_util.py">
+    <entry file="file://$PROJECT_DIR$/Crawlers/test/test2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/weibo/m_weibo_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="163" column="28" lean-forward="true" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawlers/weibo/CrawlerClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="29" column="71" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="71" />
+        <state relative-caret-position="171">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_category_handle/category_handle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-400">
+          <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/excel_make/excel_make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_category_handle/category_dic.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/taobao_brand_handle/brand_dic.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Others/ibuzz_excel/ibuzz_excel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="45" column="67" lean-forward="false" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

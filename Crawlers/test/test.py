@@ -1,34 +1,15 @@
-# -*- coding: utf-8 -*-
-import base64
-import ConfigParser
-import binascii
-import codecs
-import json
+# -*- coding:utf-8 -*-
+import os
+from Util.SQL_Connect import SQL_Connect
+from Util.DateTimeParser.DateTimeParser import Datetimeparser
 
-import requests
-import re
-import urllib
-from urllib import quote
+db = SQL_Connect.SQL_Connect()
+dt = Datetimeparser('now', '')
+db.connect_mysql(os.path.join(os.path.dirname(__file__), "ibuzz_db_config.ini"))
 
-import rsa
+sql = 'INSERT INTO url_list_python (item_index, query_time, run_tag) VALUES(0, \'%s\', 0)'
 
+for i in range(84, 0, -1):
+    print sql % (dt.get_someday_ago(time_format='%Y-%m-%d', day=i))
+    db.insert_sql(sql % (dt.get_someday_ago(time_format='%Y-%m-%d', day=i)))
 
-def write_txtfile(name, content):
-    f = codecs.open('./' + name + ".txt", "w", "utf-8")
-    f.write(content)
-    f.close()
-
-
-def read():
-    f = codecs.open("1111.txt", "r", "utf-8")
-    # print f.read()
-    json_data = f.read().replace('\r\n', '')
-
-    a = json.loads(json_data)
-    print a['w_cookies']
-
-
-read()
-
-
-# write_txtfile('111', '222')

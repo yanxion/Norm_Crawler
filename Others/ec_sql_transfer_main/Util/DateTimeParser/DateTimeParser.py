@@ -10,6 +10,8 @@ import datetime
 import time
 import re
 
+import monthdelta as monthdelta
+
 
 class Datetimeparser():
     def __init__(self, timestring, fields, year_padding=0):
@@ -287,11 +289,12 @@ class Datetimeparser():
         unix_time = self.datetime_to_time(today)
         return unix_time
 
-    def get_yesterday(self, time_format='%Y-%m-%d', day=1):
+    def get_someday_ago(self, time_format='%Y-%m-%d', day=0, month=0):
         today = datetime.date.today()
         oneday = datetime.timedelta(days=day)
-        yesterday = today - oneday
-        timestamp = time.mktime(datetime.datetime.strptime(str(yesterday), '%Y-%m-%d').timetuple())
+        onemonth = monthdelta.monthdelta(month)
+        someday_ago = today - oneday - onemonth
+        timestamp = time.mktime(datetime.datetime.strptime(str(someday_ago), '%Y-%m-%d').timetuple())
         return datetime.datetime.fromtimestamp(int(timestamp)).strftime(time_format)
 
     @staticmethod
@@ -349,4 +352,3 @@ if __name__ == '__main__':
     # both time_str and time_format should be utf-8.
 
     # print parseTimeStr(u'今天是 101年12月15日03:12的樣子'.encode('utf-8'), '%Y年%m月%d日%H:%M')
-    print timeparse.get_yesterday()

@@ -3,7 +3,7 @@ import MySQLdb
 import os
 
 
-class Forum_MySqlDB_util():
+class SQL_Connect():
     def __init__(self):
         self.sql_data = None
         self.db = None
@@ -11,9 +11,9 @@ class Forum_MySqlDB_util():
         self.batch_sql_str = ''
         self.batch_sql_val = ''
 
-    def get_connect_ini(self):
+    def get_connect_ini(self, filepath):
         config = ConfigParser.ConfigParser()
-        config.read('../../Util/Forum_MySqlDB_util/ibuzz_db_config.ini')
+        config.read(filepath)
         self.sql_data = {
             'Host': config.get('SQL_Connect', 'Host'),
             'Account': config.get('SQL_Connect', 'Account'),
@@ -22,14 +22,19 @@ class Forum_MySqlDB_util():
         }
         return self.sql_data
 
-    def connect_mysql(self):
-        self.get_connect_ini()
+    def connect_mysql(self, filepath):
+        self.get_connect_ini(filepath)
+
         self.db = MySQLdb.connect(host=self.sql_data['Host'], user=self.sql_data['Account'],
                                   passwd=self.sql_data['Password'], db=self.sql_data['Database']
                                   , charset="utf8")
         self.cursor = self.db.cursor()
 
-    def insert_sql(self, sql_str):
+    def insert_sql(self, sql_str, data_dict=''):
+        if data_dict:
+            self.cursor.execute(sql_str, data_dict)
+            self.db.commit()
+            return
         self.cursor.execute(sql_str)
         self.db.commit()
 
@@ -46,12 +51,18 @@ class Forum_MySqlDB_util():
         else:
             return tuple('0')
 
+    def select_sql_all(self, sql_str):
+        self.cursor.execute(sql_str)
+        return self.cursor
+        # for row in self.cursor:
+        #     print row
+
     def db_close(self):
         self.db.close()
 
 
 if __name__ == '__main__':
-    a = Forum_MySqlDB_util()
+    a = SQL_Connect()
     a.connect_mysql()
     list = []
     for i in range(1, 5, +1):
@@ -64,7 +75,6 @@ if __name__ == '__main__':
         for j in range(1, 5, +1):
             list1.append((i, j))
         list2.append((list1))
-
 
     print list
     print (list1)

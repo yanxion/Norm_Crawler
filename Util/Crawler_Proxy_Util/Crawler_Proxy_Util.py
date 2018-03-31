@@ -16,7 +16,7 @@ class Crawler_Proxy_Util:
         self.localhost_ip = self.get_localhost_ip()
         print "localhost ip : ", self.localhost_ip
         self.db = SQL_Connect()
-        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "config.ini"))
+        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "ibuzz_db_config.ini"))
         # proxy setting initial
         self.proxy_method = ''
         self.proxy_ip = ''

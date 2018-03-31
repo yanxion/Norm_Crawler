@@ -5,10 +5,10 @@ import os
 import pyodbc
 import sys
 import urllib
-
+import platform
 import time
 
-sys.path.append('Util/')
+sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'Util/'))
 from SQL_Connect import SQL_Connect
 from Util.DateTimeParser.DateTimeParser import Datetimeparser
 from Util.TextUtil.SpecialCharUtil import remove_emoji
@@ -17,16 +17,20 @@ from Util.TextUtil.SpecialCharUtil import remove_emoji
 class transfer_main():
     def __init__(self):
         self.db = SQL_Connect.SQL_Connect()
-        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "config.ini"))
-        self.cnxn = pyodbc.connect(
-            "DRIVER={SQL Server};SERVER=;DATABASE=;UID=;PWD=")
+        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "ibuzz_db_config.ini"))
+        if platform.system() == 'Windows':
+            self.cnxn = pyodbc.connect(
+                "DRIVER={SQL Server};SERVER=40.125.208.173;DATABASE=TaobaoNewItem;UID=zicehui;PWD=1234")
+        elif platform.system() == 'Linux':
+            self.cnxn = pyodbc.connect(
+                "DRIVER={ODBC Driver 13 for SQL Server};SERVER=40.125.208.173;DATABASE=TaobaoNewItem;UID=zicehui;PWD=1234")
         self.sql_cursor = self.cnxn.cursor()
         self.time = Datetimeparser('now', '')
         self.item_batch_insert_sql = 'INSERT INTO {} (id, userID, cat, ppath, item_id, TYPE, origin_url, origin_url_md5, url, category, keyword, title, image, content, seller_id, seller, shopname, seller_location, price, origin_price, unitPrice, tradeNum, comments, rate, ratesum, shanghai_express, collection, place, province, brand, crawltime, updatetime, SHA) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE id= values(id), userID= values(userID), cat= values(cat), ppath= values(ppath), item_id= values(item_id), TYPE= values(TYPE), origin_url= values(origin_url), origin_url_md5= values(origin_url_md5), url= values(url), category= values(category), keyword= values(keyword), title= values(title), image= values(image), content= values(content), seller_id= values(seller_id), seller= values(seller), shopname= values(shopname), seller_location= values(seller_location), price= values(price), origin_price= values(origin_price), unitPrice= values(unitPrice), tradeNum= values(tradeNum), comments= values(comments), rate= values(rate), ratesum= values(ratesum), shanghai_express= values(shanghai_express), collection= values(collection), place= values(place), province= values(province), brand= values(brand), crawltime= values(crawltime), updatetime= values(updatetime)'
         self.tag_batch_insert_sql = 'INSERT INTO {} (id, item_id, type, tag, posi, count, crawltime, updatetime, attribute) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE item_id= values(item_id), type= values(type), tag= values(tag), posi= values(posi), count= values(count), crawltime= values(crawltime), updatetime= values(updatetime), attribute=values(attribute)'
         self.rank_batch_insert_sql = 'INSERT INTO {} (id, ori_url, url, rank_name, cat1, cat2, cat3, no_num, keyword, attention, sc_percent, sc_num, sell_num, sell_price, location, seller_name, sha1) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE ori_url= values(ori_url), url= values(url), rank_name= values(rank_name), cat1= values(cat1), cat2= values(cat2), cat3= values(cat3), no_num= values(no_num), keyword= values(keyword), attention= values(attention), sc_percent= values(sc_percent), sc_num= values(sc_num), sell_num= values(sell_num), sell_price= values(sell_price), location= values(location), seller_name= values(seller_name), sha1= values(sha1)'
         self.batch_data = {}
-        self.comment_python = {}
+        self.url_list_python = {}
         # range(a,b,query_count_num)
         self.query_count_num = 1000
         self.crawldate = ''
@@ -41,88 +45,88 @@ class transfer_main():
             初始化設定
         :return:
         """
-        # comment_python sql db use data.
+        # url_list_python sql db use data.
         if query_datetime == '':
-            query_datetime = self.time.get_yesterday(time_format='%Y-%m-%d')
-        self.comment_python['query_time'] = query_datetime
-        self.crawldate = self.comment_python['query_time'].replace('-', '')
-        # 檢查comment_python有無今日的資料，沒有的話建一個新的
-        if self.db.select_sql("select * from url_list_python where query_time = '{}'".format(self.comment_python['query_time'])) == ('0',):
+            query_datetime = self.time.get_someday_ago(time_format='%Y-%m-%d', day=1)
+        self.url_list_python['query_time'] = query_datetime
+        self.crawldate = self.url_list_python['query_time'].replace('-', '')
+        # 檢查url_list_python有無今日的資料，沒有的話建一個新的
+        if self.db.select_sql("select * from url_list_python where query_time = '{}'".format(self.url_list_python['query_time'])) == ('0',):
             self.db.insert_sql(
                 'insert into url_list_python (item_index, tag_index, ranksc_index, comment_index, query_time, run_tag, '
                 'item_total, tag_total, ranksc_total, comment_total)values(0, 0, 0, 0, "%s", 0, 0, 0, 0, 0);' %
-                (self.comment_python['query_time']))
+                (self.url_list_python['query_time']))
         index_data = self.db.select_sql(
-                "select item_index, tag_index, ranksc_index from url_list_python where query_time = '{}'".format(self.comment_python['query_time']))
+                "select item_index, tag_index, ranksc_index from url_list_python where query_time = '{}'".format(self.url_list_python['query_time']))
         # 如果item_index是0的話，抓取sql server 上最大跟最小值
         if index_data[0] == 0:
             # item's min&max id
             self.sql_cursor.execute('SELECT min(Id), max(Id) FROM Item where Type >=1 and Type <= 6 and '
-                                    'CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.comment_python['query_time'] + '%\';')
+                                    'CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.url_list_python['query_time'] + '%\';')
             select_data = self.sql_cursor.fetchall()
             if select_data[0][0]:
-                self.comment_python['item_index'] = select_data[0][0]
-                self.comment_python['item_total'] = select_data[0][1]
+                self.url_list_python['item_index'] = select_data[0][0]
+                self.url_list_python['item_total'] = select_data[0][1]
             else:
-                self.comment_python['item_index'] = 0
-                self.comment_python['item_total'] = 0
+                self.url_list_python['item_index'] = 0
+                self.url_list_python['item_total'] = 0
             self.db.insert_sql('UPDATE url_list_python SET item_index = %s, item_total = %s WHERE query_time = "%s"' %
-                               (self.comment_python['item_index'], self.comment_python['item_total'], self.comment_python['query_time']))
-            self.comment_python['run_tag'] = 0
+                               (self.url_list_python['item_index'], self.url_list_python['item_total'], self.url_list_python['query_time']))
+            self.url_list_python['run_tag'] = 0
         else:
             # 檢查index值到哪，並繼續運行程式直到資料全抓完
             data = self.db.select_sql(
                 "select item_index, item_total, run_tag from url_list_python where query_time = '{}'".format(
-                    self.comment_python['query_time']))
-            self.comment_python['item_index'] = data[0]
-            self.comment_python['item_total'] = data[1]
+                    self.url_list_python['query_time']))
+            self.url_list_python['item_index'] = data[0]
+            self.url_list_python['item_total'] = data[1]
 
         # 如果tag_index是0的話，抓取sql server 上最大跟最小值
         if index_data[1] == 0:
             # tag's min&max id
             self.sql_cursor.execute('SELECT min(Id), max(Id) FROM ItemTag where Type >=1 and Type <= 6 and '
-                                    'CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.comment_python['query_time'] + '%\';')
+                                    'CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.url_list_python['query_time'] + '%\';')
             select_data = self.sql_cursor.fetchall()
             if select_data[0][0]:
-                self.comment_python['tag_index'] = select_data[0][0]
-                self.comment_python['tag_total'] = select_data[0][1]
+                self.url_list_python['tag_index'] = select_data[0][0]
+                self.url_list_python['tag_total'] = select_data[0][1]
             else:
-                self.comment_python['tag_index'] = 0
-                self.comment_python['tag_total'] = 0
+                self.url_list_python['tag_index'] = 0
+                self.url_list_python['tag_total'] = 0
             self.db.insert_sql('UPDATE url_list_python SET tag_index = %s, tag_total = %s WHERE query_time = "%s"' %
-                               (self.comment_python['tag_index'], self.comment_python['tag_total'], self.comment_python['query_time']))
-            self.comment_python['run_tag'] = 0
+                               (self.url_list_python['tag_index'], self.url_list_python['tag_total'], self.url_list_python['query_time']))
+            self.url_list_python['run_tag'] = 0
         else:
             # 檢查index值到哪，並繼續運行程式直到資料全抓完
             data = self.db.select_sql(
                 "select tag_index, tag_total, run_tag from url_list_python where query_time = '{}'".format(
-                    self.comment_python['query_time']))
-            self.comment_python['tag_index'] = data[0]
-            self.comment_python['tag_total'] = data[1]
+                    self.url_list_python['query_time']))
+            self.url_list_python['tag_index'] = data[0]
+            self.url_list_python['tag_total'] = data[1]
 
         # 如果ranksc_index是0的話，抓取sql server 上最大跟最小值
         if index_data[2] == 0:
             # ranksc's min&max id
             self.sql_cursor.execute('SELECT min(Id), max(Id) FROM RankSc where CONVERT(VARCHAR(25), CrawlTime, 126)'
-                                    ' LIKE \'' + self.comment_python['query_time'] + '%\';')
+                                    ' LIKE \'' + self.url_list_python['query_time'] + '%\';')
             select_data = self.sql_cursor.fetchall()
             if select_data[0][0]:
-                self.comment_python['ranksc_index'] = select_data[0][0]
-                self.comment_python['ranksc_total'] = select_data[0][1]
+                self.url_list_python['ranksc_index'] = select_data[0][0]
+                self.url_list_python['ranksc_total'] = select_data[0][1]
             else:
-                self.comment_python['ranksc_index'] = 0
-                self.comment_python['ranksc_total'] = 0
+                self.url_list_python['ranksc_index'] = 0
+                self.url_list_python['ranksc_total'] = 0
             self.db.insert_sql('UPDATE url_list_python SET ranksc_index = %s, ranksc_total = %s WHERE query_time = "%s"' %
-                               (self.comment_python['ranksc_index'], self.comment_python['ranksc_total'], self.comment_python['query_time']))
-            self.comment_python['run_tag'] = 0
+                               (self.url_list_python['ranksc_index'], self.url_list_python['ranksc_total'], self.url_list_python['query_time']))
+            self.url_list_python['run_tag'] = 0
         else:
             # 檢查index值到哪，並繼續運行程式直到資料全抓完
             data = self.db.select_sql(
                 "select ranksc_index, ranksc_total, run_tag from url_list_python where query_time = '{}'".format(
-                    self.comment_python['query_time']))
-            self.comment_python['ranksc_index'] = data[0]
-            self.comment_python['ranksc_total'] = data[1]
-            self.comment_python['run_tag'] = data[2]
+                    self.url_list_python['query_time']))
+            self.url_list_python['ranksc_index'] = data[0]
+            self.url_list_python['ranksc_total'] = data[1]
+            self.url_list_python['run_tag'] = data[2]
 
         self.batch_data['taobao_itemlist_' + str(self.crawldate)] = []
         self.batch_data['taobao_items_tags_' + str(self.crawldate)] = []
@@ -153,47 +157,47 @@ class transfer_main():
 
     def main(self):
         # 檢查 run_tag 是否為 0
-        if self.comment_python['run_tag'] == 0:
-            if self.comment_python['item_index'] != -1:
+        if self.url_list_python['run_tag'] == 0:
+            if self.url_list_python['item_index'] != -1:
                 self.transfer_item()
                 self.sql_cursor.execute('select count(*) from Item where Type >= 1 and Type <= 6 and CONVERT(VARCHAR(25), CrawlTime, 126)'
-                                    ' LIKE \'' + self.comment_python['query_time'] + '%\';')
+                                    ' LIKE \'' + self.url_list_python['query_time'] + '%\';')
                 item_total_cnt = self.sql_cursor.fetchall()[0][0]
                 self.db.insert_sql('update url_list_python set item_index = -1, item_total = "%s",'
                                    ' last_update_time = "%s" where query_time = "%s";' %
                                    (item_total_cnt, self.time.time_to_str(self.time.now()),
-                                    self.comment_python['query_time']))
-            if self.comment_python['tag_index'] != -1:
+                                    self.url_list_python['query_time']))
+            if self.url_list_python['tag_index'] != -1:
                 self.transfer_tag()
                 self.sql_cursor.execute('select count(*) from ItemTag where Type >=1 and Type <= 6 and CONVERT(VARCHAR(25), CrawlTime, 126)'
-                                    ' LIKE \'' + self.comment_python['query_time'] + '%\';')
+                                    ' LIKE \'' + self.url_list_python['query_time'] + '%\';')
                 tag_total_cnt = self.sql_cursor.fetchall()[0][0]
                 self.db.insert_sql('update url_list_python set tag_index = -1, tag_total = "%s",'
                                    ' last_update_time = "%s" where query_time = "%s";' %
                                    (tag_total_cnt, self.time.time_to_str(self.time.now()),
-                                    self.comment_python['query_time']))
-            if self.comment_python['ranksc_index'] != -1:
+                                    self.url_list_python['query_time']))
+            if self.url_list_python['ranksc_index'] != -1:
                 self.transfer_rank()
                 self.sql_cursor.execute('select count(*) from RankSc where CONVERT(VARCHAR(25), CrawlTime, 126)'
-                                    ' LIKE \'' + self.comment_python['query_time'] + '%\';')
+                                    ' LIKE \'' + self.url_list_python['query_time'] + '%\';')
                 rank_total_cnt = self.sql_cursor.fetchall()[0][0]
                 self.db.insert_sql('update url_list_python set ranksc_index = -1, ranksc_total = "%s",'
                                    ' last_update_time = "%s" where query_time = "%s";' %
                                    (rank_total_cnt, self.time.time_to_str(self.time.now()),
-                                    self.comment_python['query_time']))
+                                    self.url_list_python['query_time']))
             index_msg = self.db.select_sql(
                 'SELECT item_index, tag_index, ranksc_index, comment_index FROM url_list_python WHERE query_time = "{}"'.format(
-                    self.comment_python['query_time']))
+                    self.url_list_python['query_time']))
             if index_msg[0] == -1 and index_msg[1] == -1 and index_msg[2] == -1 and index_msg[3] == -1:
                 self.db.insert_sql('update url_list_python set run_tag = 1 where query_time = "%s";' %
-                                   (self.comment_python['query_time']))
+                                   (self.url_list_python['query_time']))
 
     def transfer_item(self):
         # 抓 index 值
-        handle_cnt = self.comment_python['item_index']
+        handle_cnt = self.url_list_python['item_index']
         table_name = 'taobao_itemlist_' + self.crawldate
         # 每次從資料庫抓 query_count_num 的筆數
-        for low in range(self.comment_python['item_index'], self.comment_python['item_total'], self.query_count_num):
+        for low in range(self.url_list_python['item_index'], self.url_list_python['item_total'], self.query_count_num):
             data = {}
             # get item data 比如low為 10000，那就從10000 + 1 ~ 10000 + 10000
             select_data = self.get_item_data(low, low + self.query_count_num - 1)
@@ -254,14 +258,14 @@ class transfer_main():
             print handle_cnt
             self.db.insert_sql(
                 'update url_list_python set item_index = "%s" where query_time = "%s";' % (
-                    str(handle_cnt), self.comment_python['query_time']))
+                    str(handle_cnt), self.url_list_python['query_time']))
 
     def transfer_tag(self):
         # 抓 index 值
-        handle_cnt = self.comment_python['tag_index']
+        handle_cnt = self.url_list_python['tag_index']
         table_name = 'taobao_items_tags_' + self.crawldate
         # 每次從資料庫抓 query_count_num 的筆數
-        for low in range(self.comment_python['tag_index'], self.comment_python['tag_total'], self.query_count_num):
+        for low in range(self.url_list_python['tag_index'], self.url_list_python['tag_total'], self.query_count_num):
             data = {}
             # get tag data 比如low為 10000，那就從10000 + 1 ~ 10000 + 10000
             select_data = self.get_tag_data(low, low + self.query_count_num - 1)
@@ -297,14 +301,14 @@ class transfer_main():
             print handle_cnt
             self.db.insert_sql(
                 'update url_list_python set tag_index = "%s" where query_time = "%s";' % (
-                    str(handle_cnt), self.comment_python['query_time']))
+                    str(handle_cnt), self.url_list_python['query_time']))
 
     def transfer_rank(self):
         # 抓 index 值
-        handle_cnt = self.comment_python['ranksc_index']
+        handle_cnt = self.url_list_python['ranksc_index']
         table_name = 'taobao_rank_sc_' + self.crawldate
         # 每次從資料庫抓 query_count_num 的筆數
-        for low in range(self.comment_python['ranksc_index'], self.comment_python['ranksc_total'], self.query_count_num):
+        for low in range(self.url_list_python['ranksc_index'], self.url_list_python['ranksc_total'], self.query_count_num):
             data = {}
             # get rank data 比如low為 10000，那就從10000 + 1 ~ 10000 + 10000
             select_data = self.get_rank_data(low, low + self.query_count_num - 1)
@@ -363,7 +367,7 @@ class transfer_main():
             print handle_cnt
             self.db.insert_sql(
                 'update url_list_python set ranksc_index = "%s" where query_time = "%s";' % (
-                    str(handle_cnt), self.comment_python['query_time']))
+                    str(handle_cnt), self.url_list_python['query_time']))
 
     def get_item_data(self, num_low, num_high):
         """
@@ -378,7 +382,7 @@ class transfer_main():
               'Comments, Rate, RateSum, ShangHaiExpress, Collection, Place, Provice, BrandName, CrawlTime, Sha from item' \
               ' where id between ' + str(num_low) + ' and ' + str(num_high) + \
               ' and Type between 1 and 6 '  \
-              ' and CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.comment_python['query_time'] + '%\';'
+              ' and CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.url_list_python['query_time'] + '%\';'
         self.sql_cursor.execute(sql)
         # row = self.sql_cursor.fetchone()
         all_data = self.sql_cursor.fetchall()
@@ -395,7 +399,7 @@ class transfer_main():
         sql = 'select Id, ItemId, Type, Tags, Posi, Count, CrawlTime, Attribute from ItemTag' \
               ' where id between ' + str(num_low) + ' and ' + str(num_high) + \
               ' and Type between 1 and 6' \
-              ' and CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.comment_python['query_time'] + '%\';'
+              ' and CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.url_list_python['query_time'] + '%\';'
         self.sql_cursor.execute(sql)
         # row = self.sql_cursor.fetchone()
         all_data = self.sql_cursor.fetchall()
@@ -412,7 +416,7 @@ class transfer_main():
         sql = "select id, originurl, url, rankname, cat1, cat2, cat3, nonum, keyword, attention, scpercent, scnum," \
               " sellnum, sellprice, location, sellername from RankSc" \
               " where id between " + str(num_low) + ' and ' + str(num_high) + \
-              ' and CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.comment_python['query_time'] + '%\';'
+              ' and CONVERT(VARCHAR(25), CrawlTime, 126) LIKE \'' + self.url_list_python['query_time'] + '%\';'
         self.sql_cursor.execute(sql)
         # row = self.sql_cursor.fetchone()
         all_data = self.sql_cursor.fetchall()

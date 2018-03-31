@@ -21,7 +21,7 @@ class CrawlerClient(Crawler):
         self.crawler_data = CrawlerDataWrapper()
         self.CRAWLER_NAME = 'www_angelibrary_com'
         self.db = SQL_Connect()
-        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "config.ini"))
+        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "ibuzz_db_config.ini"))
         self.timeparse = Datetimeparser('now', '')
         # self.insert_meta = "INSERT INTO blog_meta (domain, account, name, url) VALUES ('%s', '%s', '%s', '%s')"
         self.insert = "INSERT INTO story (name, content, story_url, youtube_url) VALUES (%(name)s, %(content)s, %(story_url)s, %(youtube_url)s)"

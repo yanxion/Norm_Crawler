@@ -33,7 +33,7 @@ class brand_handle():
 
     def make_brand_dict(self):
         query_data = self.db.select_sql_all(
-            'SELECT id, item_id, title, content, brand FROM taobao.taobao_itemlist_20171130 WHERE TYPE BETWEEN 3 AND 6 AND brand IS NOT NULL')  # LIMIT 10;')
+            'SELECT id, item_id, title, content, brand FROM taobao.taobao_itemlist_20180228 WHERE TYPE BETWEEN 3 AND 6 AND brand IS NOT NULL')  # LIMIT 10;')
         jdata = self.data_to_json(query_data)
         brand_dic = {}
         for i in jdata:
@@ -49,31 +49,66 @@ class brand_handle():
         f.close()
         # print json.dumps(jdata, ensure_ascii=False, indent=4)
 
-    def brand_handle(self):
+    def brand_handle_from_content(self):
         f = codecs.open('brand_dic.txt', "r", "utf-8")
         file_data = f.read().replace('\r\n', '')
         f.close()
         brand_dic = json.loads(file_data)
 
         query_data = self.db.select_sql_all(
-            'SELECT id, item_id, title, content, brand FROM taobao.taobao_itemlist_20171130 WHERE brand IS NULL')
+            'SELECT id, item_id, title, content, brand FROM taobao.taobao_itemlist_20180228 WHERE brand IS NULL')
         jdata = self.data_to_json(query_data)
         # f = codecs.open('brand_handle.txt', "w", "utf-8")
         for i in jdata:
             for j in brand_dic['brand']:
-                if jdata[i]['title'].find(j[0]) >= 0 or jdata[i]['content'].find(j[0]) >= 0:
-                    print j[1]
-                    self.db.insert_sql('UPDATE taobao.taobao_itemlist_20171130 SET brand = "' + j[1] + '" WHERE item_id = "' + jdata[i]['item_id'] + '"')
-                    # f.write('-------------------------------------------------------------------------\n')
-                    # f.write(jdata[i]['title'] + '\n')
-                    # f.write(jdata[i]['content'] + '\n')
-                    # f.write(j[1] + '\n')
-                    # f.write('\n')
-        f.close()
+                if jdata[i]['content'] and jdata[i]['title']:
+                    if jdata[i]['title'].upper().find(j[0]) >= 0 or jdata[i]['content'].upper().find(j[0]) >= 0:
+                        print j[1]
+                        self.db.insert_sql('UPDATE taobao.taobao_itemlist_20180228 SET brand = "' + j[1] + '" WHERE item_id = "' + jdata[i]['item_id'] + '"')
+                        # f.write('-------------------------------------------------------------------------\n')
+                        # f.write(jdata[i]['title'] + '\n')
+                        # f.write(jdata[i]['content'] + '\n')
+                        # f.write(j[1] + '\n')
+                        # f.write('\n')
+
         # for i in brand_dic['brand']:
         #     print i
+
+    def brand_handle_from_brand(self):
+        f = codecs.open('brand_dic.txt', "r", "utf-8")
+        file_data = f.read().replace('\r\n', '')
+        f.close()
+        brand_dic = json.loads(file_data)
+
+        # query_data = self.db.select_sql_all(
+        #     'SELECT id, item_id, title, content, brand FROM taobao.taobao_itemlist_20180228')
+        # jdata = self.data_to_json(query_data)
+        # for i in jdata:
+        #     print jdata[i]['brand'], ' -----> ',
+        #     for j in brand_dic['brand']:
+        #         if jdata[i]['brand']:
+        #             if jdata[i]['brand'].upper().find(j[0]) >= 0:
+        #                 print j[1],
+        #                 self.db.insert_sql(
+        #                     'UPDATE taobao.taobao_itemlist_20180228 SET brand = "' + j[1] + '" WHERE item_id = "' +
+        #                     jdata[i]['item_id'] + '"')
+        #                 break
+        #     print ' end.'
+
+        for j in brand_dic['brand']:
+            print j[0], ' -----> ', j[1],
+            print self.db.select_sql(
+            'SELECT count(1) brand FROM taobao.taobao_itemlist_20180228 where brand like "' + j[0] + '"')
+
+            self.db.insert_sql(
+                'UPDATE taobao.taobao_itemlist_20180228 SET brand = "' + j[1] + '" WHERE brand like "%' +
+                j[0] + '%"'
+            )
+
 
 if __name__ == '__main__':
     main = brand_handle()
     # main.make_brand_dict()
-    main.brand_handle()
+
+    main.brand_handle_from_content()
+    main.brand_handle_from_brand()

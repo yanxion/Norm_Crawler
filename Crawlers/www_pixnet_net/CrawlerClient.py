@@ -21,7 +21,7 @@ class CrawlerClient(Crawler):
         self.crawler_data = CrawlerDataWrapper()
         self.CRAWLER_NAME = 'www_pixnet_net'
         self.db = SQL_Connect()
-        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "config.ini"))
+        self.db.connect_mysql(os.path.join(os.path.dirname(__file__), "ibuzz_db_config.ini"))
         self.timeparse = Datetimeparser('now', '')
         # self.insert_meta = "INSERT INTO blog_meta (domain, account, name, url) VALUES ('%s', '%s', '%s', '%s')"
         self.insert_meta = "INSERT INTO blog_meta (domain, account, name, url) VALUES (%(domain)s, %(account)s, %(name)s, %(url)s)"
